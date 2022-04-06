@@ -1,12 +1,87 @@
+@import "../../variables";
+
+.spacer {
+  flex: 1;
+}
+
 .toolbar {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: auto;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: $secondary-100;
   color: white;
   font-weight: 600;
+
+  .texto {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+  }
+
+  .title {
+    margin: 0;
+    font-family: $font-ubuntu;
+    font-size: 38px;
+    font-weight: bold;
+    color: $highlight-100;
+  }
+
+  .school {
+    font-size: 20px;
+    margin: 0;
+    font-family: $font-cabin;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  img {
+    margin: 0 80px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 1030px) {
+  .toolbar {
+    .title {
+      font-size: 28px;
+    }
+    .school {
+      font-size: 20px;
+    }
+
+    img {
+      margin: 0 5px;
+      width: 125px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .toolbar {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
+
+    .texto {
+      text-align: center;
+      order: 3;
+    }
+
+    .title {
+      font-size: 20px;
+    }
+    .school {
+      font-size: 14px;
+    }
+
+    img {
+      margin: 10px 30px 0;
+      width: 100px;
+    }
+  }
 }
