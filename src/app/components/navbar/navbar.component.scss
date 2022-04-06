@@ -55,10 +55,8 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .toolbar {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
     flex-wrap: wrap;
 
     .texto {
