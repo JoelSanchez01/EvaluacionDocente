@@ -5,16 +5,10 @@
 }
 
 .toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: auto;
   display: flex;
   align-items: center;
   background-color: $secondary-100;
   color: white;
-  font-weight: 600;
 
   .texto {
     display: flex;
@@ -40,7 +34,7 @@
   }
 
   img {
-    margin: 0 80px;
+    margin: 0 30px;
     width: 150px;
   }
 }

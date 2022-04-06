@@ -1,0 +1,151 @@
+@import "../../variables";
+
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #9b9b9b;
+
+.loginScreen {
+  background-color: $background-light;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.formEstudent {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  background-color: $background-lighter;
+  width: 40%;
+  height: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.25);
+
+  h2 {
+    font-family: $font-ubuntu;
+    color: $secondary-100;
+  }
+
+  .botonIniciar {
+    padding: 15px;
+    border-radius: 30px;
+    border: 0;
+    background-color: $primary-100;
+    color: white;
+    font-family: $font-ubuntu;
+    font-weight: bold;
+    font-size: 18px;
+    outline: none;
+  }
+
+  .botonIniciar:hover {
+    background-color: #79a031;
+  }
+  .botonIniciar:active {
+    background-color: #99d627;
+  }
+
+  p {
+    margin: 30px 0;
+    a {
+      text-decoration: none;
+      font-family: $font-ubuntu;
+      font-weight: lighter;
+      color: $secondary-100;
+    }
+    a:hover {
+      color: $secondary-80;
+    }
+  }
+}
+
+.bordeImagen {
+  margin-top: 5%;
+  border: 5px solid $secondary-100;
+  border-radius: 50%;
+  margin-bottom: 25px;
+}
+
+.imagen {
+  width: 100px;
+  padding: 10px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-cabin;
+  input {
+    width: 250px;
+  }
+  button {
+    margin-top: 25px;
+  }
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid $gray;
+  outline: 0;
+  font-size: 14px;
+  color: $white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 14px;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 12px;
+  color: $gray;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 12px;
+    color: $secondary-60;
+    font-weight: 700;
+  }
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, $secondary-100, $secondary-60);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field {
+  &:required,
+  &:invalid {
+    box-shadow: none;
+  }
+}
