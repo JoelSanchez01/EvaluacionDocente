@@ -13,62 +13,30 @@
     <table>
       <tr>
         <th>Materia</th>
+
         <th>Maestro</th>
         <th>Calificación</th>
-      </tr>
 
+      </tr>
       <tr *ngFor="let maestro of maestrosclase" class="datos">
         <td class="materia">{{ maestro.materia }}</td>
         <td class="nombre">{{ maestro.nombre }}</td>
         <td class="radios">
-          <form action="" class="formularios">
-            <input
-              class="input_radio"
-              type="radio"
-              id="5"
-              name="{{ maestro.materia }}"
-              value="4"
-            />
-            <label for="5">5</label>
-            <input
-              class="input_radio"
-              type="radio"
-              id="4"
-              name="{{ maestro.materia }}"
-              value="4"
-            />
-            <label for="4">4</label>
+        <form action="" class="formularios">
+          <div class="forms">
+          <label><input class="input_radio" type="radio" id="5" name="{{ maestro.materia }}" value="5"/>5</label>
+          <label><input class="input_radio" type="radio" id="4" name="{{ maestro.materia }}" value="4"/>4</label>
+          <label><input class="input_radio" type="radio" id="3" name="{{ maestro.materia }}" value="3"/>3</label>
+          <label><input class="input_radio" type="radio" id="2" name="{{ maestro.materia }}" value="2"/>2</label>
+          <label><input class="input_radio" type="radio" id="1" name="{{ maestro.materia }}" value="1"/>1</label>
+          </div>
 
-            <input
-              class="input_radio"
-              type="radio"
-              id="3"
-              name="{{ maestro.materia }}"
-              value="3"
-            />
-            <label for="3">3</label>
-
-            <input
-              class="input_radio"
-              type="radio"
-              id="2"
-              name="{{ maestro.materia }}"
-              value="2"
-            />
-            <label for="2">2</label>
-
-            <input
-              class="input_radio"
-              type="radio"
-              id="1"
-              name="{{ maestro.materia }}"
-              value="1"
-            />
-            <label for="1">1</label>
-          </form>
+        </form>
         </td>
       </tr>
+
     </table>
+    <hr>
     <div class="endTable">
       <p>Pregunta 1 de 58</p>
       <input type="submit" value="Enviar" />
