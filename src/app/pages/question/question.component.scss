@@ -2,8 +2,9 @@
 
 .question {
   width: 90%;
-
+  background-color: $background-lighter;
   margin: 30px auto 0;
+  font-size: 24px;
   font-family: $font-ubuntu;
 
   .question_header {
@@ -11,7 +12,6 @@
     flex-direction: column;
     width: 60%;
     margin: 0 auto;
-
     h2 {
       font-weight: 500;
     }
@@ -36,6 +36,7 @@
 
     .question_text {
       font-weight: bold;
+
     }
   }
 }
@@ -53,8 +54,13 @@ table {
   table {
     .nombre {
       font-weight: lighter;
+      color:#636466;
     }
+     .materia{
+      font-weight: 500;
+      text-transform: uppercase;
 
+     }
     .input_radio {
       margin: 10px;
 
@@ -68,7 +74,9 @@ table {
   width: 100%;
   justify-content: space-around;
 }
-
+.radios{
+  align-items: center;
+}
 input[type=radio] {
   display: block;
   margin: 0 auto;
@@ -80,9 +88,13 @@ input[type=radio] {
   display: inline-block;
     text-align: center;
 
+    font-size: 14px;
+    width:30px;
+
+
 }
 label + label {
-margin-left:10px;
+margin-left:30px;
 }
    input[type='radio']:after {
         width: 20px;
@@ -140,7 +152,7 @@ margin-left:10px;
      [id='1']:after{
            border: 2px solid #FC3B3B;
     }
-@media(max-width:30em){
+@media(max-width:700px){
   table tr{
     display:flex;
     flex-direction:column;
