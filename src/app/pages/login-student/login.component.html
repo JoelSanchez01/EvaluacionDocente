@@ -4,7 +4,7 @@
       <img src="../../../assets/images/estudent.svg" alt="" class="imagen" />
     </div>
     <h2>Inicia Sesión</h2>
-    <form action="" class="formulario">
+    <form [formGroup]="loginForm"  (ngSubmit)="sendCredentials()"  class="formulario">
       <div class="form__group field">
         <input
           type="text"
@@ -12,6 +12,7 @@
           placeholder="Numero de Control"
           name="NC"
           id="NC"
+          formControlName="NC"
           required
         />
         <label for="NC" class="form__label">Numero de Control</label>
@@ -24,6 +25,7 @@
           placeholder="Contrasena"
           name="pass"
           id="pass"
+          formControlName="pass"
           required
         />
         <label for="pass" class="form__label">Contrasena</label>
