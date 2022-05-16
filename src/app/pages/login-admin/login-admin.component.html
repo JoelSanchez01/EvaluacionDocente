@@ -4,7 +4,7 @@
       <img src="../../../assets/images/admin.svg" alt="" class="imagen" />
     </div>
     <h2>Inicia Sesión</h2>
-    <form action="" class="formulario">
+    <form [formGroup]="loginAdminForm" (ngSubmit)="sendCredentials()" class="formulario">
       <div class="form__group field">
         <input
           type="text"
@@ -12,6 +12,7 @@
           placeholder="Usuario"
           name="user"
           id="user"
+          formControlName="user"
           required
         />
         <label for="user" class="form__label">Usuario</label>
@@ -24,6 +25,7 @@
           placeholder="Contrasena"
           name="pass"
           id="pass"
+          formControlName="pass"
           required
         />
         <label for="pass" class="form__label">Contrasena</label>
@@ -31,6 +33,6 @@
 
       <button class="botonIniciar" type="submit">Iniciar sesion</button>
     </form>
-    <p><a href="">¿Eres Estudiante?</a></p>
+    <p><a routerLink="/" routerLinkActive="active">¿Eres Estudiante?</a></p>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-login-admin',
@@ -6,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-admin.component.scss']
 })
 export class LoginAdminComponent implements OnInit {
+  loginAdminForm: FormGroup;
 
-  constructor() { }
+  constructor(public form: FormBuilder) {
+    this.loginAdminForm = form.group({
+      user: [''],
+      pass: ['']
+    });
+  }
+
+  sendCredentials(): any {
+    console.log(this.loginAdminForm.value);
+  }
 
   ngOnInit(): void {
   }
