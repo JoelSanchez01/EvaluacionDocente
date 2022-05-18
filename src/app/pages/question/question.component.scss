@@ -50,15 +50,29 @@ table {
   }
 }
 
+input {
+  padding: 15px;
+  border-radius: 6px;
+  border: 0;
+  background-color: $primary-100;
+  color: white;
+
+  font-family: $font-ubuntu;
+  font-weight: bold;
+  font-size: 18px;
+  outline: none;
+}
 .question_answer {
   table {
     .nombre {
       font-weight: lighter;
       color:#636466;
+
     }
      .materia{
       font-weight: 500;
       text-transform: uppercase;
+
 
      }
     .input_radio {
@@ -157,5 +171,21 @@ margin-left:30px;
     display:flex;
     flex-direction:column;
     align-items: center;
+
   }
+  .temas{
+    display:none !important;
+  }
+  .question_answer{
+    table{
+    margin-top: -30px;
+  .nombre {
+    margin-top: -20px;
+  }
+  .input_radio {
+    margin-top:-0px;
+  }
+  }
+}
+
 }
