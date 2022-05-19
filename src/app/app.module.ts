@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from "@angular/forms"
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { QuestionComponent } from './pages/question/question.component';
@@ -13,12 +14,13 @@ import { QuestionComponent } from './pages/question/question.component';
     AppComponent,
 
     NavbarComponent,
-     QuestionComponent,
+    QuestionComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { maestros } from "../../maestros"
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -17,9 +18,10 @@ export class QuestionComponent implements OnInit {
   maestrosclase = maestros;
   numero: String = "";
 
-  verNumero(event: any) {
-    this.numero = event.target.value + event.target.name;
-    console.log(this.numero);
+
+
+  getValues(val: any) {
+    console.log(val);
   }
 
 

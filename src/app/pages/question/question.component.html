@@ -10,39 +10,44 @@
   </div>
 
   <div class="question_answer">
-    <table>
-      <tr class="temas">
-        <th>Materia</th>
+    <form #SimpleForm="ngForm" (ngSubmit)="getValues(SimpleForm.value)" action="" class="formularios" id="formulario">
+      <table>
+        <tr class="temas">
+          <th>Materia</th>
 
-        <th>Maestro</th>
-        <th>Calificación</th>
+          <th>Maestro</th>
+          <th>Calificación</th>
 
-      </tr>
+        </tr>
 
 
-      <tr *ngFor="let maestro of maestrosclase" class="datos">
-        <td class="materia">{{ maestro.materia }}</td>
-        <td class="nombre">{{ maestro.nombre }}</td>
-        <td class="radios">
-          <form action="" class="formularios" id="formulario">
+        <tr *ngFor="let maestro of maestrosclase" class="datos">
+          <td class="materia">{{ maestro.materia }}</td>
+          <td class="nombre">{{ maestro.nombre }}</td>
+          <td class="radios">
+
             <div class="forms">
 
-              <label *ngFor="let numero of araregloNumeros"><input class="input_radio" type="radio" id="{{numero}}"
-                  name="{{ maestro.materia }}" value="{{numero}}" (change)="verNumero($event)" />{{numero}}</label>
+              <label *ngFor="let numero of araregloNumeros">
+                <input ngModel class="input_radio" type="radio" id="{{numero}}" name="{{ maestro.materia }}"
+                  value="{{numero}}" required />
+                {{numero}}
+              </label>
 
 
             </div>
 
-          </form>
 
-        </td>
+          </td>
 
-      </tr>
+        </tr>
 
-    </table>
-    <div class="endTable">
-      <p>Pregunta 1 de 59</p>
-      <button type="submit" class="enviar" form="formulario">Siguiente </button>
-    </div>
+      </table>
+
+      <div class="endTable">
+        <p>Pregunta 1 de 59</p>
+        <button type="submit" class="enviar" form="formulario">Siguiente </button>
+      </div>
+    </form>
   </div>
 </div>
