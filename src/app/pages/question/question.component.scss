@@ -26,7 +26,7 @@
   .question_box {
     width: 60%;
 
-    margin: 30px auto;
+    margin: 50px auto;
     background: rgba(1, 100, 167, 0.65);
     border-radius: 111px 0px;
     padding: 15px 40px;
@@ -75,6 +75,9 @@ input {
 }
 
 .question_answer {
+
+  padding-bottom: 30px;
+
   table {
     .nombre {
       font-weight: lighter;
@@ -96,12 +99,12 @@ input {
 
 
 
-
   }
 }
 
 .endTable {
   margin-top: 50px;
+  margin-bottom: 30px;
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -156,6 +159,28 @@ input[type='radio']:checked:after {
   content: '';
   display: inline-block;
   visibility: visible;
+
+}
+
+.enviar {
+  padding: 15px;
+  border-radius: 6px;
+  border: 0;
+  background-color: #97c93d;
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  font-size: 1.8rem;
+  outline: none;
+}
+
+.enviar:hover {
+  background-color: #79a031;
+
+}
+
+.enviar:active {
+  background-color: #95c53d;
 
 }
 

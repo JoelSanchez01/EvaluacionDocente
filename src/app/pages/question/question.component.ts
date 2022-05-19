@@ -12,6 +12,16 @@ export class QuestionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  nombreEstudiante:String = "Tilin Martinez Hernandez"
+  araregloNumeros: Number[] = [5, 4, 3, 2, 1]
+  nombreEstudiante: String = "Tilin Martinez Hernandez"
   maestrosclase = maestros;
+  numero: String = "";
+
+  verNumero(event: any) {
+    this.numero = event.target.value + event.target.name;
+    console.log(this.numero);
+  }
+
+
+
 }
