@@ -5,8 +5,8 @@
   </div>
 
   <div class="question_box">
-    <p class="question_number">PREGUNTA 15</p>
-    <p class="question_text">¿TU PROFESOR TE HA INTIMIDADO?</p>
+    <p class="question_number">PREGUNTA {{preguntaPagina.ID}}</p>
+    <p class="question_text">{{preguntaPagina.pregunta}}</p>
   </div>
 
   <div class="question_answer">
@@ -29,8 +29,8 @@
             <div class="forms">
 
               <label *ngFor="let numero of araregloNumeros">
-                <input ngModel class="input_radio" type="radio" (change)="validacion($event)" id="{{numero}}"
-                  name="{{ maestro.materia }}" required="required" value="{{numero}}" />
+                <input ngModel class="input_radio" type="radio" id="{{numero}}" name="{{ maestro.nombre }}"
+                  required="required" value="{{numero}}" />
                 {{numero}}
               </label>
 
@@ -45,7 +45,7 @@
       </table>
 
       <div class="endTable">
-        <p>Pregunta 1 de 59</p>
+        <p>Pregunta {{preguntaPagina.ID}} de 46</p>
         <button type="submit" class="enviar" form="formulario">Siguiente </button>
       </div>
     </form>
