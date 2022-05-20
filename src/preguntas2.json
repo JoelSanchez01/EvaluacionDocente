@@ -1,0 +1,98 @@
+{
+  "A": {
+    "nombre": "Dominio de la asignatura",
+    "preguntas": [
+      "Explica de manera clara los contenidos de la asignatura.",
+      "Relaciona los contenidos de la asignatura con los contenidos de otra.",
+      "Resuelve las dudas asignadas con los contenidos de la asignatura.",
+      "Propone ejemplos o ejercicios que vinculan la asignatura con la práctica profesional.",
+      "Explica la utilidad de los contenidos teóricos y prácticos para la actividad profesional."
+    ]
+  },
+  "B": {
+    "nombre": "Planificación del curso",
+    "preguntas": [
+      "Cumple con los acuerdos establecidos al inicio de la asignatura.",
+      "Durante el curso establece las estrategias adecuadas necesarias para lograr el aprendizaje deseado.",
+      "El programa presentado al inicio de la asignatura se cumple totalmente."
+    ]
+  },
+  "C": {
+    "nombre": "Ambientes de aprendizaje",
+    "preguntas": [
+      "Incluye experiencias de aprendizaje en lugares diferentes al aula (talleres, laboratorios, empresas, etc.).",
+      "Utiliza para el aprendizaje herramientas de interacció de las tecnologías actuales de la información (correo electrónico, chats, plataformas, etc.).",
+      "Organiza actividades que me permiten ejercitar mi expresión oral y escrita.",
+      "Relaciona los contenidos de la asignatura con la industria y la sociedad a nivel local, regional, nacional e internacional.",
+      "Usa ejemplos y casos relacioandos con la vida real."
+    ]
+  },
+  "D": {
+    "nombre": "Estrategias, métodos y técnicas",
+    "preguntas": [
+      "Adapta las actividades para atender a los diferentes estilos de aprendizaje de los estudiantes.",
+      "Promueve el autodidactismo y la investigación.",
+      "Promueve actividades participativas que me permiten colaborar con mis compañeros con una actividad positiva.",
+      "Estimula la reflexion sobre la manera que aprendes.",
+      "Se involucra en las actividades propuestas al grupo.",
+      "Presenta y expone las clases de manera organizada y estructurada",
+      "Utiliza diversas estrategias, métodos, medios y materiales."
+    ]
+  },
+  "E": {
+    "nombre": "Motivación",
+    "preguntas": [
+      "Muestra compromiso y entusiasmo en sus actividades docentes.",
+      "Toma cuenta las necesidades, intereses y expectativas del grupo.",
+      "Proporciona el desarrollo de un ambiente de respeto y confianza.",
+      "Reconoce los éxitos y logros en las actividades de aprendiza.",
+      "Existe la impresion de que se toman represalias con algunos estudiantes",
+      "Hace interesante la asignatura."
+    ]
+  },
+  "F": {
+    "nombre": "Evaluación",
+    "preguntas": [
+      "Identifica los conocimientos y habilidades de los estudiantes al inicio de la asignatura o de cada unidad.",
+      "Proporciona información para realizar adecuadamente las actividades de la evaluación.",
+      "Toma en cuenta las actividades realilzadas y los productos como evidencias para la calificación y acredetación de la asignatura.",
+      "Considera los resultados de la evaluacion (asesorías, trabajos complementarios, búsqueda de información, etc.) para realizar mejoras en el aprendizaje.",
+      "Da a conocer las calicaciones en el plazo establecido.",
+      "Muestra apertura para la correción de errores de apreciación y evaluación.",
+      "Otorga califaciones imparciales."
+    ]
+  },
+  "G": {
+    "nombre": "Comunicación",
+    "preguntas": [
+      "Desarrolla la clase en un clima de apertura y entendimiento.",
+      "Escucha y toma en cuenta las opiniones de los estudiantes.",
+      "Muestra congruencia entre lo que dice y lo que hace."
+    ]
+  },
+  "H": {
+    "nombre": "Gestión del curso",
+    "preguntas": [
+      "Asiste a clases regular y puntualmente.",
+      "Fomenta la importancia de contribuir a la conservación del medio ambiente.",
+      "Promueve mantener limpias y ordenadas a las instalaciones.",
+      "Es accesible y está dispuesto a brindarte ayuda académica."
+    ]
+  },
+  "I": {
+    "nombre": "Tecnologías de la información y comunicación",
+    "preguntas": [
+      "Emplea las tecnologías de la información y de la comunicación como un medio que facilite el aprendizaje de los estudiantes.",
+      "Promueve el uso de diversas herramientas, particularmente las digitales, para gestionar (recabar, procesar, evaluar y usar) información.",
+      "Promueve el uso seguro, legal y ético de la información digital."
+    ]
+  },
+  "J": {
+    "nombre": "Satisfacción general",
+    "preguntas": [
+      "En general, pienso que es un buen docente.",
+      "Estoy satisfecha o satisfecho por mi nivel de desempeño y aprendizaje logrado gracias a la labor del docente.",
+      "Yo recomendaría a este docente a otros compañeros."
+    ]
+  }
+}
