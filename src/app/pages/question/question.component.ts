@@ -48,7 +48,7 @@ export class QuestionComponent implements OnInit {
             this.maestrosclase[i].catMotivacionE = this.maestrosclase[i].catMotivacionE + (Number(Object.entries(val.value)[i][1]));
           else if (this.preguntaPagina.ID <= 35)
             this.maestrosclase[i].catEvaluacionF = this.maestrosclase[i].catEvaluacionF + (Number(Object.entries(val.value)[i][1]));
-          else if (this.preguntaPagina.ID <= 37)
+          else if (this.preguntaPagina.ID <= 38)
             this.maestrosclase[i].catComunicacionG = this.maestrosclase[i].catComunicacionG + (Number(Object.entries(val.value)[i][1]));
           else if (this.preguntaPagina.ID <= 42)
             this.maestrosclase[i].catGestionH = this.maestrosclase[i].catGestionH + (Number(Object.entries(val.value)[i][1]));
@@ -59,19 +59,29 @@ export class QuestionComponent implements OnInit {
 
 
 
+          if (this.preguntaPagina.ID == 48) {
+            this.maestrosclase[i].catDominioA = this.maestrosclase[i].catDominioA / 5;
+            this.maestrosclase[i].catPlanificacionB = this.maestrosclase[i].catPlanificacionB / 3;
+            this.maestrosclase[i].catAmbientesC = this.maestrosclase[i].catAmbientesC / 5;
+            this.maestrosclase[i].catEstrategiasD = this.maestrosclase[i].catEstrategiasD / 7;
+            this.maestrosclase[i].catMotivacionE = this.maestrosclase[i].catMotivacionE / 7;
+            this.maestrosclase[i].catEvaluacionF = this.maestrosclase[i].catEvaluacionF / 8;
+            this.maestrosclase[i].catComunicacionG = this.maestrosclase[i].catComunicacionG / 3;
+            this.maestrosclase[i].catGestionH = this.maestrosclase[i].catGestionH / 4;
+            this.maestrosclase[i].catTicsI = this.maestrosclase[i].catTicsI / 3;
+            this.maestrosclase[i].catSatisfaccionJ = this.maestrosclase[i].catSatisfaccionJ / 3;
 
 
+            console.log(this.maestrosclase)
+            alert("YA TERMINASTE")
+            break;
 
 
-          switch (this.preguntaPagina.ID) {
-            case 1: case 2: case 3: case 4: case 5:
-              this.maestrosclase[i].catDominioA = this.maestrosclase[i].catDominioA + (Number(Object.entries(val.value)[i][1]));
-              break;
           }
 
         }
 
-        console.log(this.maestrosclase[i].nombre + " " + this.maestrosclase[i].catDominioA)
+
       }
 
 
