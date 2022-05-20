@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { maestros } from "../../maestros"
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -17,11 +18,18 @@ export class QuestionComponent implements OnInit {
   nombreEstudiante: String = "Tilin Martinez Hernandez"
   maestrosclase = maestros;
   numero: String = "";
+  validator: boolean = true;
 
+
+  validacion(event: any) {
+
+
+  }
 
 
   getValues(val: any) {
-    console.log(val);
+    if (val.status == "INVALID") alert("Responde todas las preguntas")
+    else console.log(val.value);
   }
 
 

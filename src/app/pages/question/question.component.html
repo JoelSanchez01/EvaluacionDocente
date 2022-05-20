@@ -10,7 +10,7 @@
   </div>
 
   <div class="question_answer">
-    <form #SimpleForm="ngForm" (ngSubmit)="getValues(SimpleForm.value)" action="" class="formularios" id="formulario">
+    <form #SimpleForm="ngForm" (ngSubmit)="getValues(SimpleForm)" action="" class="formularios" id="formulario">
       <table>
         <tr class="temas">
           <th>Materia</th>
@@ -29,8 +29,8 @@
             <div class="forms">
 
               <label *ngFor="let numero of araregloNumeros">
-                <input ngModel class="input_radio" type="radio" id="{{numero}}" name="{{ maestro.materia }}"
-                  value="{{numero}}" required />
+                <input ngModel class="input_radio" type="radio" (change)="validacion($event)" id="{{numero}}"
+                  name="{{ maestro.materia }}" required="required" value="{{numero}}" />
                 {{numero}}
               </label>
 
