@@ -47,7 +47,7 @@ export const preguntas = [
     {
         "ID": 10,
         "clasificacion": "Ambientes",
-        "pregunta": "Utiliza para el aprendizaje herramientas de interacció de las tecnologías actuales de la información (correo electrónico, chats, plataformas, etc.)."
+        "pregunta": "Utiliza para el aprendizaje herramientas de interacción de las tecnologías actuales de la información (correo electrónico, chats, plataformas, etc.)."
     },
     {
         "ID": 11,
@@ -62,7 +62,7 @@ export const preguntas = [
     {
         "ID": 13,
         "clasificacion": "Ambientes",
-        "pregunta": "Usa ejemplos y casos relacioandos con la vida real."
+        "pregunta": "Usa ejemplos y casos relacionados con la vida real."
     },
     {
         "ID": 14,
@@ -82,7 +82,7 @@ export const preguntas = [
     {
         "ID": 17,
         "clasificacion": "Estrategias",
-        "pregunta": "Estimula la reflexion sobre la manera que aprendes."
+        "pregunta": "Estimula la reflexión sobre la manera que aprendes."
     },
     {
         "ID": 18,
@@ -112,121 +112,133 @@ export const preguntas = [
     {
         "ID": 23,
         "clasificacion": "Motivacion",
-        "pregunta": "Proporciona el desarrollo de un ambiente de respeto y confianza."
+        "pregunta": "Propicia el desarrollo de un ambiente de respeto y confianza."
     },
     {
         "ID": 24,
         "clasificacion": "Motivacion",
-        "pregunta": "Reconoce los éxitos y logros en las actividades de aprendiza."
+        "pregunta": "Propicia la curiosidad y el deseo de aprender."
     },
     {
         "ID": 25,
         "clasificacion": "Motivacion",
-        "pregunta": "Existe la impresion de que se toman represalias con algunos estudiantes"
+        "pregunta": "Reconoce los éxitos y logros en las actividades de aprendizaje."
     },
     {
         "ID": 26,
         "clasificacion": "Motivacion",
-        "pregunta": "Hace interesante la asignatura."
+        "pregunta": "Existe la impresión de que se toman represalias con algunos estudiantes"
     },
     {
         "ID": 27,
-        "clasificacion": "Evaluacion",
-        "pregunta": "Identifica los conocimientos y habilidades de los estudiantes al inicio de la asignatura o de cada unidad."
+        "clasificacion": "Motivacion",
+        "pregunta": "Hace interesante la asignatura."
     },
     {
         "ID": 28,
         "clasificacion": "Evaluacion",
-        "pregunta": "Proporciona información para realizar adecuadamente las actividades de la evaluación."
+        "pregunta": "Identifica los conocimientos y habilidades de los estudiantes al inicio de la asignatura o de cada unidad."
     },
     {
         "ID": 29,
         "clasificacion": "Evaluacion",
-        "pregunta": "Toma en cuenta las actividades realilzadas y los productos como evidencias para la calificación y acredetación de la asignatura."
+        "pregunta": "Proporciona información para realizar adecuadamente las actividades de la evaluación."
     },
     {
         "ID": 30,
         "clasificacion": "Evaluacion",
-        "pregunta": "Considera los resultados de la evaluacion (asesorías, trabajos complementarios, búsqueda de información, etc.) para realizar mejoras en el aprendizaje."
+        "pregunta": "Toma en cuenta las actividades realizadas y los productos como evidencias para la calificación y acreditación de la asignatura."
     },
     {
         "ID": 31,
         "clasificacion": "Evaluacion",
-        "pregunta": "Da a conocer las calicaciones en el plazo establecido."
+        "pregunta": "Considera los resultados de la evaluación (asesorías, trabajos complementarios, búsqueda de información, etc.) para realizar mejoras en el aprendizaje."
     },
     {
         "ID": 32,
         "clasificacion": "Evaluacion",
-        "pregunta": "Muestra apertura para la correción de errores de apreciación y evaluación."
+        "pregunta": "Da a conocer las calificaciones en el plazo establecido."
     },
     {
         "ID": 33,
         "clasificacion": "Evaluacion",
-        "pregunta": "Otorga califaciones imparciales."
+        "pregunta": "Da oportunidad de mejorar los resultados de la evaluación del aprendizaje."
     },
     {
         "ID": 34,
-        "clasificacion": "Comunicacion",
-        "pregunta": "Desarrolla la clase en un clima de apertura y entendimiento."
+        "clasificacion": "Evaluacion",
+        "pregunta": "Muestra apertura para la corrección de errores de apreciación y evaluación."
     },
     {
         "ID": 35,
-        "clasificacion": "Comunicacion",
-        "pregunta": "Escucha y toma en cuenta las opiniones de los estudiantes."
+        "clasificacion": "Evaluacion",
+        "pregunta": "Otorga calificaciones imparciales."
     },
     {
         "ID": 36,
         "clasificacion": "Comunicacion",
-        "pregunta": "Muestra congruencia entre lo que dice y lo que hace."
+        "pregunta": "Desarrolla la clase en un clima de apertura y entendimiento."
     },
     {
         "ID": 37,
-        "clasificacion": "Gestion",
-        "pregunta": "Asiste a clases regular y puntualmente."
+        "clasificacion": "Comunicacion",
+        "pregunta": "Escucha y toma en cuenta las opiniones de los estudiantes."
     },
     {
         "ID": 38,
-        "clasificacion": "Gestion",
-        "pregunta": "Fomenta la importancia de contribuir a la conservación del medio ambiente."
+        "clasificacion": "Comunicacion",
+        "pregunta": "Muestra congruencia entre lo que dice y lo que hace."
     },
     {
         "ID": 39,
         "clasificacion": "Gestion",
-        "pregunta": "Promueve mantener limpias y ordenadas a las instalaciones."
+        "pregunta": "Asiste a clases regular y puntualmente."
     },
     {
         "ID": 40,
         "clasificacion": "Gestion",
-        "pregunta": "Es accesible y está dispuesto a brindarte ayuda académica."
+        "pregunta": "Fomenta la importancia de contribuir a la conservación del medio ambiente."
     },
     {
         "ID": 41,
-        "clasificacion": "TICS",
-        "pregunta": "Emplea las tecnologías de la información y de la comunicación como un medio que facilite el aprendizaje de los estudiantes."
+        "clasificacion": "Gestion",
+        "pregunta": "Promueve mantener limpias y ordenadas las instalaciones."
     },
     {
         "ID": 42,
-        "clasificacion": "TICS",
-        "pregunta": "Promueve el uso de diversas herramientas, particularmente las digitales, para gestionar (recabar, procesar, evaluar y usar) información."
+        "clasificacion": "Gestion",
+        "pregunta": "Es accesible y está dispuesto a brindarte ayuda académica."
     },
     {
         "ID": 43,
         "clasificacion": "TICS",
-        "pregunta": "Promueve el uso seguro, legal y ético de la información digital."
+        "pregunta": "Emplea las tecnologías de la información y de la comunicación como un medio que facilite el aprendizaje de los estudiantes."
     },
     {
         "ID": 44,
-        "clasificacion": "Satisfaccion",
-        "pregunta": "En general, pienso que es un buen docente."
+        "clasificacion": "TICS",
+        "pregunta": "Promueve el uso de diversas herramientas, particularmente las digitales, para gestionar (recabar, procesar, evaluar y usar) información."
     },
     {
         "ID": 45,
-        "clasificacion": "Satisfaccion",
-        "pregunta": "Estoy satisfecha o satisfecho por mi nivel de desempeño y aprendizaje logrado gracias a la labor del docente."
+        "clasificacion": "TICS",
+        "pregunta": "Promueve el uso seguro, legal y ético de la información digital."
     },
     {
         "ID": 46,
         "clasificacion": "Satisfaccion",
+        "pregunta": "En general, pienso que es un buen docente."
+    },
+    {
+        "ID": 47,
+        "clasificacion": "Satisfaccion",
+        "pregunta": "Estoy satisfecha o satisfecho por mi nivel de desempeño y aprendizaje logrado gracias a la labor del docente."
+    },
+    {
+        "ID": 48,
+        "clasificacion": "Satisfaccion",
         "pregunta": "Yo recomendaría a este docente a otros compañeros."
     }
 ]
+
+

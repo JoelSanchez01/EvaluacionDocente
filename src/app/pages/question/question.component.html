@@ -29,7 +29,7 @@
             <div class="forms">
 
               <label *ngFor="let numero of araregloNumeros">
-                <input ngModel class="input_radio" type="radio" id="{{numero}}" name="{{ maestro.nombre }}"
+                <input ngModel class="input_radio" type="radio" id="{{numero}}" name="{{ maestro.grupo }}"
                   required="required" value="{{numero}}" />
                 {{numero}}
               </label>
@@ -45,7 +45,7 @@
       </table>
 
       <div class="endTable">
-        <p>Pregunta {{preguntaPagina.ID}} de 46</p>
+        <p>Pregunta {{preguntaPagina.ID}} de 48</p>
         <button type="submit" class="enviar" form="formulario">Siguiente </button>
       </div>
     </form>
