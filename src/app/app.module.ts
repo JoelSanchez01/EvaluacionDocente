@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/loginEstudent/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
 import { PanelAdminComponent } from './pages/panel-admin/panel-admin.component';
+import { ControlPeriodoComponent } from './pages/control-periodo/control-periodo.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PanelAdminComponent } from './pages/panel-admin/panel-admin.component';
     LoginComponent,
     NavbarComponent,
     LoginAdminComponent,
-    PanelAdminComponent
+    PanelAdminComponent,
+    ControlPeriodoComponent
   ],
   imports: [
     BrowserModule,

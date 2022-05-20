@@ -12,10 +12,11 @@
 }
 h2{
   font-size:26px;
-  padding: 30px 15px 10px 247px;
+  padding: 30px 15px 10px 7%;
 }
 .todo{
-  padding: 10px 15px 10px 150px;
+  padding: 10px 15px 10px 0px;
+  align-items: center;
 }
 .file_sub{
   position:relative;
@@ -33,10 +34,12 @@ input#subir{
 
 .subir{
  display: inline-block;
- margin-left:100px;
+ margin-left:7%;
+
  align-items: flex-start;
  width: 350px;
 }
+
 .file-upload-wrapper {
   $height: 60px;
 
@@ -115,7 +118,6 @@ input#subir{
   font-size: 18px;
   float:right;
   margin-top:20px;
-
 }
 .botonIniciar:hover {
   background: darken($primary-100, 10%);
@@ -123,4 +125,18 @@ input#subir{
 .botonIniciar:active {
   background-color: $primary-100;
 }
-
+@media (max-width: 1350px){
+  .subir{
+    margin-left:2%;
+  }
+}
+@media (max-width: 950px){
+  .subir{
+    margin-left: 25%;
+    margin-right:25%;
+  }
+  h2{
+    font-size: 24px;
+    margin-left:8%;
+  }
+}
