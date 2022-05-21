@@ -35,8 +35,6 @@ input#subir{
 .subir{
  display: inline-block;
  margin-left:7%;
-
- align-items: flex-start;
  width: 350px;
 }
 
@@ -132,11 +130,10 @@ input#subir{
 }
 @media (max-width: 950px){
   .subir{
-    margin-left: 25%;
+    margin-left: 7%;
     margin-right:25%;
   }
   h2{
     font-size: 24px;
-    margin-left:8%;
   }
 }

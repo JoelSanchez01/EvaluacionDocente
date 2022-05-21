@@ -1,0 +1,93 @@
+@import "../../variables";
+* {
+  background-color: $background-lighter;
+  font-family: $font-ubuntu;
+  align-items: center;
+}
+
+h2{
+  font-size:26px;
+  padding: 30px 15px 10px 0px;
+}
+.todo{
+  padding: 0px 15px 10px 7%;
+}
+.contendor{
+  display:inline;
+}
+select {
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  appearance:none;
+  outline:0;
+  box-shadow:none;
+  border:0;
+  background: white;
+  background-image: none;
+  flex: 1;
+  padding: 0 .5em;
+  color:$foreground-dark;
+  cursor:pointer;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+}
+select::-ms-expand {
+  display: none;
+}
+.categoria{
+  display: inline-block;
+  font-size: 24px;
+  margin-right: 7%;
+  font-weight: 500;
+}
+.select {
+  position: relative;
+  display: inline-flex;
+  width: 350px;
+  height: 3em;
+  line-height: 3;
+  margin-right: 10%;
+  background: white;
+  overflow: hidden;
+  border-radius: .25em;
+}
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: white;
+  cursor:pointer;
+  pointer-events:none;
+  transition:.25s all ease;
+}
+.select:hover::after {
+  color: $grays-lightgray;
+}
+
+.botonIniciar {
+  padding: 15px;
+  border-radius: 10px;
+  border: 0;
+  margin-left:6%;
+  width:350px;
+  background-color: $primary-100;
+  color: white;
+  font-family: $font-ubuntu;
+  font-weight: bold;
+  font-size: 18px;
+}
+.botonIniciar:hover {
+  background: darken($primary-100, 10%);
+}
+.botonIniciar:active {
+  background-color: $primary-100;
+}
+@media (max-width: 1000px){
+  .categoria{
+    flex-direction: column;
+    margin-right:10%;
+}
+}
