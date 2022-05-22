@@ -11,8 +11,8 @@ export class LoginAdminComponent implements OnInit {
 
   constructor(public form: FormBuilder) {
     this.loginAdminForm = form.group({
-      user: [''],
-      pass: ['']
+      usuario: [''],
+      contrasena: ['']
     });
   }
 
