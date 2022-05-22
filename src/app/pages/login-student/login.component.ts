@@ -11,8 +11,8 @@ export class LoginComponent implements OnInit {
 
   constructor(public form: FormBuilder) {
     this.loginForm = form.group({
-      NC: [''],
-      pass: ['']
+      control: [''],
+      contrasena: ['']
     });
   }
 
