@@ -1,41 +1,65 @@
 @import "../../variables";
+
 * {
   background-color: $background-lighter;
   font-family: $font-ubuntu;
   align-items: center;
 }
-.nombre{
+
+.nombre {
   color: $foreground-dark;
-  font-size:24px;
+  font-size: 24px;
   font-weight: 500;
   padding: 10px 15px 10px 0px;
 }
-h2{
-  font-size:26px;
+
+h2 {
+  font-size: 26px;
   padding: 30px 15px 10px 7%;
 }
-.todo{
-  padding: 10px 15px 10px 0px;
-  align-items: center;
+
+.todo {
+
+  width: 90%;
+  margin: 0 auto;
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+
+
+
+
+    .boxBoton {
+
+      width: 100%;
+      margin-right: 100px;
+    }
+  }
+
+
 }
-.file_sub{
-  position:relative;
-  margin:50px;
-  padding:10px;
-  width:150px;
+
+.file_sub {
+  position: relative;
+  margin: 50px;
+  padding: 10px;
+  width: 150px;
 
   background-color: $primary-100;
 }
 
-input#subir{
-  position:absolute;
+input#subir {
+  position: absolute;
 }
 
 
-.subir{
- display: inline-block;
- margin-left:7%;
- width: 350px;
+.subir {
+  display: inline-block;
+  width: 350px;
+  margin: 15px;
 }
 
 .file-upload-wrapper {
@@ -88,7 +112,8 @@ input#subir{
       background: darken($primary-100, 10%);
     }
   }
-   input {
+
+  input {
     opacity: 0;
     position: absolute;
     top: 0;
@@ -104,36 +129,42 @@ input#subir{
     width: 100%;
   }
 }
+
 .botonIniciar {
   padding: 15px;
   border-radius: 10px;
   border: 0;
-  width:150px;
+  width: 150px;
   background-color: $primary-100;
   color: white;
   font-family: $font-ubuntu;
   font-weight: bold;
   font-size: 18px;
-  float:right;
-  margin-top:20px;
+  float: right;
+  margin-top: 50px;
 }
+
 .botonIniciar:hover {
   background: darken($primary-100, 10%);
 }
+
 .botonIniciar:active {
   background-color: $primary-100;
 }
-@media (max-width: 1350px){
-  .subir{
-    margin-left:2%;
+
+
+
+@media (max-width: 950px) {
+
+
+  .todo .form .boxBoton {
+
+    width: auto;
+    margin-right: 0;
   }
-}
-@media (max-width: 950px){
-  .subir{
-    margin-left: 7%;
-    margin-right:25%;
-  }
-  h2{
+
+
+  h2 {
     font-size: 24px;
   }
 }

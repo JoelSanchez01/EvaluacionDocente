@@ -1,40 +1,50 @@
 @import "../../variables";
+
 * {
   background-color: $background-lighter;
   font-family: $font-ubuntu;
   align-items: center;
 }
 
-h2{
-  font-size:26px;
+h2 {
+  font-size: 26px;
   padding: 30px 15px 10px 0px;
 }
-.control{
-  padding: 0px 15px 10px 7%;
+
+.control {
+  width: 90%;
+  margin: 0 auto;
+  padding-left: 50px;
 }
 
-button{
+button {
   padding: 15px;
   border-radius: 10px;
   border: 0;
-  width:150px;
+  width: 150px;
   color: white;
   font-family: $font-ubuntu;
   font-weight: bold;
   font-size: 18px;
 }
-.botonIniciar{
-   background-color: $primary-100;
+
+.botonIniciar {
+  background-color: $primary-100;
 }
-.botonIniciar + .botonTerminar{
+
+.botonIniciar+.botonTerminar {
   margin-left: 2%;
 }
-.botonTerminar{
+
+.botonTerminar {
   background-color: #808080;
 }
+
 .botonIniciar:hover {
   background: darken($primary-100, 10%);
 }
+
+
 .botonIniciar:active {
   background-color: $primary-100;
 }
@@ -42,14 +52,22 @@ button{
 .botonTerminar:hover {
   background: darken(#808080, 10%);
 }
+
 .botonTerminar:active {
   background-color: #808080;
 }
-@media (max-width: 950px){
-.botones{
-    padding: 0px 15px 10px 3%;
+
+@media (max-width: 950px) {
+  .control {
+    padding-left: 0px;
+
   }
-  h2{
+
+  .botones {
+    display: flex;
+  }
+
+  h2 {
     font-size: 24px;
     margin-left: 2%;
   }
