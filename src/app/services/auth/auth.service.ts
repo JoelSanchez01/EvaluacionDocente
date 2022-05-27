@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 import { Student } from "../../models/Student";
-import * as moment from "moment";
+import moment from "moment";
 import { map } from "rxjs/operators";
 import { Admin } from "../../models/Admin";
 

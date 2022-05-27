@@ -14,16 +14,21 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './pages/admin/admin.component';
+import { QuestionComponent } from './pages/question/question.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+
     NavbarComponent,
-    LoginAdminComponent,
-    PanelAdminComponent,
     ControlPeriodoComponent,
     ResultadosComponent,
+    PanelAdminComponent,
+
+    LoginComponent,
+    LoginAdminComponent,
+    QuestionComponent,
     AdminComponent
   ],
   imports: [

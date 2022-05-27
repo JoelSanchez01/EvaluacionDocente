@@ -32,7 +32,7 @@ export class LoginAdminComponent implements OnInit {
           console.log("Token: " + localStorage.getItem('id_token'));
           console.log("Expiracion: " + localStorage.getItem('expires_at'));
 
-          this.router.navigate(['panel-admin']);
+          this.router.navigate(['admin']);
         })
     }
   }
