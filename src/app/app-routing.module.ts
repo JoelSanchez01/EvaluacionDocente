@@ -5,11 +5,13 @@ import { LoginComponent } from "./pages/login-student/login.component";
 import {AdminComponent} from "./pages/admin/admin.component";
 
 import {AuthGuard} from "./services/auth/auth.guard";
+import {QuestionComponent} from "./pages/question/question.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'login-admin', component: LoginAdminComponent },
+  { path: 'preguntas', component: QuestionComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
 ];
 

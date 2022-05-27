@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
-import { Student } from "../../models/Student";
+import { Alumno } from "../../models/Alumno";
 import moment from "moment";
 import { map } from "rxjs/operators";
 import { Admin } from "../../models/Admin";
@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(control:string, nip:string ) {
-    return this.http.post<Student>(this.baseUrl + '/student/login.php', {control, nip})
+    return this.http.post<Alumno>(this.baseUrl + '/student/login.php', {control, nip})
       .pipe(map(AuthService.setSession));
   }
 
