@@ -147,8 +147,6 @@ export class PanelAdminComponent implements OnInit {
       console.log(obj.nombre_abreviado_materia);
       console.log(obj.nombre_completo_materia);
       console.log(obj.tipo_materia);
-
-
     })
   }
 
