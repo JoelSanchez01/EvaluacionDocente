@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
           console.log("Token: " + localStorage.getItem('id_token'));
           console.log("Expiracion: " + localStorage.getItem('expires_at'));
         })
+
+      // TODO Redirect to questions component
     }
   }
 

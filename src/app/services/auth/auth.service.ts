@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import { Student } from "../../models/Student";
 import * as moment from "moment";
 import { map } from "rxjs/operators";
+import { Admin } from "../../models/Admin";
 
 @Injectable({
   providedIn: 'root'
@@ -19,16 +20,24 @@ export class AuthService {
       .pipe(map(AuthService.setSession));
   }
 
+  loginAdmin(usuario:string, contrasena:string ) {
+    return this.http.post<Admin>(this.baseUrl + '/admin/login.php', {usuario, contrasena})
+      .pipe(map(AuthService.setSession));
+  }
+
   private static setSession(authResult: any) {
     const expiresAt = moment().add(authResult.expiresIn,'second');
 
     localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('usuario', authResult.user)
+    localStorage.setItem('usuario', authResult.usuario)
+    localStorage.setItem('nombre', authResult.nombre)
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 
   logout() {
     localStorage.removeItem("id_token");
+    localStorage.removeItem("usuario");
+    localStorage.removeItem('nombre')
     localStorage.removeItem("expires_at");
   }
 
