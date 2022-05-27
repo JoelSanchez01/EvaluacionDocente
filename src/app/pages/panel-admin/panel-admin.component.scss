@@ -1,0 +1,171 @@
+@import "../../variables";
+
+* {
+  background-color: $background-lighter;
+  font-family: $font-ubuntu;
+  align-items: center;
+}
+
+.nombre {
+  color: $foreground-dark;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 10px 15px 10px 0px;
+}
+
+h2 {
+  font-size: 26px;
+  padding: 30px 15px 10px 7%;
+}
+
+.todo {
+
+  width: 90%;
+  margin: 0 auto;
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+
+
+
+
+    .boxBoton {
+
+      width: 100%;
+      margin-right: 100px;
+    }
+  }
+
+
+}
+
+.file_sub {
+  position: relative;
+  margin: 50px;
+  padding: 10px;
+  width: 150px;
+
+  background-color: $primary-100;
+}
+
+input#subir {
+  position: absolute;
+}
+
+
+.subir {
+  display: inline-block;
+  width: 350px;
+  margin: 15px;
+}
+
+.file-upload-wrapper {
+  $height: 60px;
+
+  position: relative;
+  width: 100%;
+  height: $height;
+
+  &:after {
+    content: attr(data-text);
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    padding: 10px 15px;
+    display: block;
+    width: calc(100% - 40px);
+    pointer-events: none;
+    z-index: 20;
+    height: $height - 20px;
+    line-height: $height - 20px;
+    color: #999;
+    border-radius: 5px 10px 10px 5px;
+    font-weight: 300;
+  }
+
+  &:before {
+    content: url(../../../assets/images/bx_upload.png);
+    position: absolute;
+    align-items: center;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 60px;
+    background: $primary-100;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    line-height: $height;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+  }
+
+  &:hover {
+    &:before {
+      background: darken($primary-100, 10%);
+    }
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    height: $height - 20px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    color: black;
+  }
+}
+
+.botonIniciar {
+  padding: 15px;
+  border-radius: 10px;
+  border: 0;
+  width: 150px;
+  background-color: $primary-100;
+  color: white;
+  font-family: $font-ubuntu;
+  font-weight: bold;
+  font-size: 18px;
+  float: right;
+  margin-top: 50px;
+}
+
+.botonIniciar:hover {
+  background: darken($primary-100, 10%);
+}
+
+.botonIniciar:active {
+  background-color: $primary-100;
+}
+
+
+
+@media (max-width: 950px) {
+
+
+  .todo .form .boxBoton {
+
+    width: auto;
+    margin-right: 0;
+  }
+
+
+  h2 {
+    font-size: 24px;
+  }
+}
