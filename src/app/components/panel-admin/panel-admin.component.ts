@@ -26,10 +26,8 @@ export class PanelAdminComponent implements OnInit {
 
 
 
-
-
-
   archivos: String[] = ["Organigrama", "Materias", "Alumnos", "Periodos", "Carreras", "Personal", "Grupos", "Seleccion de Materias"];
+
 
 
   fileUpload(event1: any) {
@@ -37,12 +35,13 @@ export class PanelAdminComponent implements OnInit {
     const selectedFile = event1.target.files[0];
     const fileReader = new FileReader;
     fileReader.readAsBinaryString(selectedFile);
+
     fileReader.onload = (event: any) => {
       let binaryData = event.target.result;
       let workbook = XLSX.read(binaryData, { type: 'binary' });
+
       workbook.SheetNames.forEach(sheet => {
         const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet])
-
 
         if (event1.srcElement.__ngContext__[8].$implicit == "Organigrama") this.Organigrama = data;
         if (event1.srcElement.__ngContext__[8].$implicit == "Materias") this.Materias = data;
@@ -52,11 +51,8 @@ export class PanelAdminComponent implements OnInit {
         if (event1.srcElement.__ngContext__[8].$implicit == "Personal") this.Personal = data;
         if (event1.srcElement.__ngContext__[8].$implicit == "Grupos") this.Grupos = data;
         if (event1.srcElement.__ngContext__[8].$implicit == "Seleccion de Materias") this.SeleccionMat = data;
-
-
       })
     }
-
   }
 
   SubirBDD(val: any) {
@@ -69,9 +65,7 @@ export class PanelAdminComponent implements OnInit {
       this.subirCarreras(this.Carreras);
       this.subirPersonal(this.Personal);
       this.subirSeleccionMat(this.SeleccionMat);
-
     }
-
   }
 
   subirSeleccionMat(SeleccionMat: unknown[]) {
@@ -98,7 +92,6 @@ export class PanelAdminComponent implements OnInit {
       console.log(obj.rfc);
       console.log(obj.status_empleado);
       console.log(obj.tipo_personal);
-
     })
   }
   subirCarreras(Carreras: unknown[]) {
@@ -134,8 +127,6 @@ export class PanelAdminComponent implements OnInit {
       console.log(obj.plan_de_estudios);
       console.log(obj.reticula);
       console.log(obj.semestre);
-
-
     })
   }
 
@@ -155,10 +146,6 @@ export class PanelAdminComponent implements OnInit {
       console.log(obj.clave_area);
       console.log(obj.descripcion_area);
       console.log(obj.tipo_area)
-
     })
   }
-
-
-
 }
