@@ -1,91 +1,14 @@
 <div class="todo">
   <h2>Cargar archivos para la base de datos</h2>
-  <form class="form">
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-      </div>
-    </div>
-    <!--2-->
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-      </div>
-    </div>
-    <!--3-->
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-      </div>
+  <form class="form" #FormUpload="ngForm" (ngSubmit)="SubirBDD(FormUpload)">
+    <div class="subir" *ngFor="let archivo of archivos">
+      <p class="nombre">{{archivo}}</p>
+      <input class="form-control" name={{archivo}} ngModel type="file" id="formFile" lang="es"
+        (change)="fileUpload($event)" required="required">
     </div>
 
-    <!--4-->
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-      </div>
-    </div>
-    <!--5-->
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-      </div>
-    </div>
-    <!--6-->
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-      </div>
-    </div>
 
-    <!--7-->
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-      </div>
-    </div>
-    <!--8-->
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-      </div>
-    </div>
-    <!-- 9-->
-    <div class="subir">
-      <p class="nombre">Archivo de Alumnos</p>
-      <div class="container">
-        <div class="file-upload-wrapper" data-text="sonic.exe">
-          <input name="file-upload-field" type="file" class="file-upload-field" value="">
-        </div>
-
-      </div>
-    </div>
     <div class="boxBoton">
-
       <button class="botonIniciar" type="submit">Subir</button>
     </div>
   </form>

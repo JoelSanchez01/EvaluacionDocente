@@ -10,6 +10,8 @@ import { PanelAdminComponent } from './pages/panel-admin/panel-admin.component';
 import { ControlPeriodoComponent } from './pages/control-periodo/control-periodo.component';
 import { ResultadosComponent } from './pages/resultados/resultados.component';
 
+import { FormsModule } from "@angular/forms"
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { ResultadosComponent } from './pages/resultados/resultados.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
