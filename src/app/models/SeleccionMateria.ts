@@ -1,5 +1,5 @@
 export class SeleccionMateria {
-  constructor(
+constructor(
     public periodo: string,
     public no_control: string,
     public materia: string,

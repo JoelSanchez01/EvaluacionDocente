@@ -35,6 +35,7 @@ export class LoginAdminComponent implements OnInit {
           this.router.navigate(['admin']);
         })
     }
+    this.auth.logout();
   }
 
   ngOnInit(): void {

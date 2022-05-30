@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.auth.isLoggedOut()) {
-      window.alert("Acceso prohibido")
+      window.alert("Sesion expirada");
       this.router.navigate(['login']);
       return false;
     }

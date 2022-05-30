@@ -15,22 +15,30 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(control:string, nip:string ) {
+  login(control:string, nip:string) {
     return this.http.post<Alumno>(this.baseUrl + '/student/login.php', {control, nip})
       .pipe(map(AuthService.setSession));
   }
 
   loginAdmin(usuario:string, contrasena:string ) {
     return this.http.post<Admin>(this.baseUrl + '/admin/login.php', {usuario, contrasena})
-      .pipe(map(AuthService.setSession));
+      .pipe(map(AuthService.setAdminSession));
   }
 
   private static setSession(authResult: any) {
     const expiresAt = moment().add(authResult.expiresIn,'second');
 
     localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('control', authResult.control)
+    localStorage.setItem('nombre', authResult.nombre_completo)
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+  }
+
+  private static setAdminSession(authResult: any) {
+    const expiresAt = moment().add(authResult.expiresIn,'second');
+
+    localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('usuario', authResult.usuario)
-    localStorage.setItem('nombre', authResult.nombre)
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 

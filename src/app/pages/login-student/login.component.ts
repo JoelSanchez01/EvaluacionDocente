@@ -17,22 +17,23 @@ export class LoginComponent implements OnInit {
     public router: Router) {
     this.loginForm = form.group({
       control: [''],
-      contrasena: ['']
+      nip: ['']
     });
   }
 
   sendCredentials(): any {
     const value = this.loginForm.value;
-    if(value.control && value.contrasena) {
-      this.auth.login(value.control, value.contrasena)
+
+    if(value.control && value.nip) {
+      this.auth.login(value.control, value.nip)
         .subscribe(() => {
           console.log("user logged");
           console.log("Usuario: " + localStorage.getItem('usuario'));
           console.log("Token: " + localStorage.getItem('id_token'));
           console.log("Expiracion: " + localStorage.getItem('expires_at'));
-        })
 
-      // TODO Redirect to questions component
+          this.router.navigate(['preguntas']);
+        })
     }
   }
 
