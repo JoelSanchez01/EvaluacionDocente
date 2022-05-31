@@ -8,7 +8,10 @@ import { preguntas } from "../../preguntas"
 })
 export class QuestionComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.nombreEstudiante = <string> localStorage.getItem("nombre");
+
+  }
 
   ngOnInit(): void {
   }

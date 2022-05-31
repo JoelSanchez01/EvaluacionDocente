@@ -15,13 +15,13 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(control:string, nip:string) {
-    return this.http.post<Alumno>(this.baseUrl + '/student/login.php', {control, nip})
+  login(control:string, nip: string) {
+    return this.http.post<Alumno>(`${this.baseUrl}/student/login.php`, {control, nip})
       .pipe(map(AuthService.setSession));
   }
 
-  loginAdmin(usuario:string, contrasena:string ) {
-    return this.http.post<Admin>(this.baseUrl + '/admin/login.php', {usuario, contrasena})
+  loginAdmin(usuario: string, contrasena: string) {
+    return this.http.post<Admin>(`${this.baseUrl}/admin/login.php`, {usuario, contrasena})
       .pipe(map(AuthService.setAdminSession));
   }
 

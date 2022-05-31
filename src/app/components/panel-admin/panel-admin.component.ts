@@ -9,6 +9,7 @@ import { Carrera } from 'src/app/models/Carrera';
 import {Docente} from "../../models/Docente";
 import {SeleccionMateria} from "../../models/SeleccionMateria";
 import {Grupo} from "../../models/Grupo";
+import {CrudService} from "../../services/crud/crud.service";
 
 @Component({
   selector: 'app-panel-admin',
@@ -17,7 +18,7 @@ import {Grupo} from "../../models/Grupo";
 })
 export class PanelAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(public crud: CrudService) { }
 
   ngOnInit(): void {
   }
@@ -58,7 +59,6 @@ export class PanelAdminComponent implements OnInit {
               item[2]
             )
           });
-          console.log(this.academias);
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Materias") {
           this.materias = data.map(item => {
@@ -77,7 +77,6 @@ export class PanelAdminComponent implements OnInit {
               item[5],
             )
           });
-          console.log(this.materias);
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Alumnos") {
           this.alumnos = data.map(item => {
@@ -100,7 +99,6 @@ export class PanelAdminComponent implements OnInit {
               item[9]
             )
           });
-          console.log(this.alumnos);
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Periodos") {
           this.periodos = data.map(item => {
@@ -115,7 +113,6 @@ export class PanelAdminComponent implements OnInit {
               item[3]
             )
           });
-          console.log(this.periodos);
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Carreras") {
           this.carreras = data.map(item => {
@@ -132,7 +129,6 @@ export class PanelAdminComponent implements OnInit {
               item[4]
             )
           })
-          console.log(this.carreras);
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Personal") {
           this.docentes = data.map(item => {
@@ -155,7 +151,6 @@ export class PanelAdminComponent implements OnInit {
               item[11]
           )
           })
-          console.log(this.docentes);
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Grupos") {
           this.grupos = data.map(item => {
@@ -174,7 +169,6 @@ export class PanelAdminComponent implements OnInit {
               item[8]
             )
           })
-          console.log(this.grupos);
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Seleccion de Materias") {
           this.seleccionMaterias = data.map(item => {
@@ -191,103 +185,57 @@ export class PanelAdminComponent implements OnInit {
               item[4],
             )
           })
-          console.log(this.seleccionMaterias);
         }
       })
     }
   }
 
   SubirBDD(val: any) {
-    if (val.status == "INVALID") alert("Responde todas las preguntas")
-    else {
-      this.subirOrganigrama(this.academias);
-      this.subirMaterias(this.materias);
-      this.subirAlumnos(this.alumnos);
-      this.subirPeriodos(this.periodos);
-      this.subirCarreras(this.carreras);
-      this.subirPersonal(this.docentes);
-      this.subirSeleccionMat(this.seleccionMaterias);
+    // TODO arreglar problema de CORS
+    this.subirOrganigrama(this.academias);
+    /*
+  if (val.status == "INVALID") alert("Responde todas las preguntas")
+  else {
+    this.subirPeriodos(this.periodos);
+    this.subirMaterias(this.materias);
+    this.subirGrupos(this.grupos);
+    this.subirCarreras(this.carreras);
+    this.subirAlumnos(this.alumnos);
+    this.subirPersonal(this.docentes);
+    this.subirSeleccionMat(this.seleccionMaterias);
     }
+     */
   }
 
-  subirSeleccionMat(SeleccionMat: unknown[]) {
-    SeleccionMat.forEach(function (obj: any) {
-      console.log(obj.grupo);
-      console.log(obj.materia);
-      console.log(obj.no_de_control);
-      console.log(obj.periodo);
-      console.log(obj.status_seleccion);
-
-    })
-  }
-  subirPersonal(Personal: unknown[]) {
-    Personal.forEach(function (obj: any) {
-      console.log(obj.apellido_materno);
-      console.log(obj.apellido_paterno);
-      console.log(obj.apellidos_empleado);
-      console.log(obj.area_academica);
-      console.log(obj.clave_area);
-      console.log(obj.curp_empleado);
-      console.log(obj.no_tarjeta);
-      console.log(obj.nombramiento);
-      console.log(obj.nombre_empleado);
-      console.log(obj.rfc);
-      console.log(obj.status_empleado);
-      console.log(obj.tipo_personal);
-    })
-  }
-  subirCarreras(Carreras: unknown[]) {
-    Carreras.forEach(function (obj: any) {
-      console.log(obj.carrera);
-      console.log(obj.clave_oficial);
-      console.log(obj.modalidad);
-      console.log(obj.nivel_escolar);
-      console.log(obj.nombre_carrera);
-      console.log(obj.nombre_reducido);
-      console.log(obj.reticula);
-      console.log(obj.siglas);
-    })
-  }
-  subirPeriodos(Periodos: unknown[]) {
-    Periodos.forEach(function (obj: any) {
-      console.log(obj.identificacion_corta);
-      console.log(obj.identificacion_larga);
-      console.log(obj.periodo);
-      console.log(obj.status);
-    })
+  subirSeleccionMat(SeleccionMat: SeleccionMateria[]) {
+    this.crud.addSelectSubject(SeleccionMat).subscribe();
   }
 
-  subirAlumnos(Alumnos: unknown[]) {
-    Alumnos.forEach(function (obj: any) {
-      console.log(obj.apellido_materno);
-      console.log(obj.apellido_paterno);
-      console.log(obj.carrera);
-      console.log(obj.estatus_alumno);
-      console.log(obj.nip);
-      console.log(obj.no_de_control);
-      console.log(obj.nombre_alumno);
-      console.log(obj.plan_de_estudios);
-      console.log(obj.reticula);
-      console.log(obj.semestre);
-    })
+  subirPersonal(Personal: Docente[]) {
+    this.crud.addTeacher(Personal).subscribe();
   }
 
-  subirMaterias(Materias: unknown[]) {
-    Materias.forEach(function (obj: any) {
-      console.log(obj.clave_area);
-      console.log(obj.materia);
-      console.log(obj.nivel_escolar);
-      console.log(obj.nombre_abreviado_materia);
-      console.log(obj.nombre_completo_materia);
-      console.log(obj.tipo_materia);
-    })
+  subirCarreras(Carreras: Carrera[]) {
+    this.crud.addCareer(Carreras).subscribe();
   }
 
-  subirOrganigrama(Organigrama: unknown[]) {
-    Organigrama.forEach(function (obj: any) {
-      console.log(obj.clave_area);
-      console.log(obj.descripcion_area);
-      console.log(obj.tipo_area)
-    })
+  subirPeriodos(Periodos: Periodo[]) {
+    this.crud.addPeriod(Periodos).subscribe();
+  }
+
+  subirAlumnos(Alumnos: Alumno[]) {
+    this.crud.addStudent(Alumnos).subscribe();
+  }
+
+  subirMaterias(Materias: Materia[]) {
+    this.crud.addSubject(Materias).subscribe();
+  }
+
+  subirOrganigrama(Organigrama: Academia[]) {
+    this.crud.addAcademy(Organigrama).subscribe();
+  }
+
+  subirGrupos(Grupos: Grupo[]) {
+    this.crud.addGroup(Grupos).subscribe();
   }
 }
