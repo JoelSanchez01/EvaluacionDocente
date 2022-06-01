@@ -3,8 +3,8 @@ export class Grupo {
     public periodo: string,
     public materia: string,
     public grupo: string,
-    public capacidad: number,
-    public alumnos_inscritos: number,
+    public capacidad: string,
+    public alumnos_inscritos: string,
     public rfc_docente: string
   ) {
   }

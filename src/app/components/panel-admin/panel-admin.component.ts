@@ -153,6 +153,7 @@ export class PanelAdminComponent implements OnInit {
           )
           })
         }
+
         if (event1.srcElement.__ngContext__[8].$implicit == "Grupos") {
           this.grupos = data.map(item => {
             return new Grupo (
@@ -192,18 +193,17 @@ export class PanelAdminComponent implements OnInit {
   }
 
   SubirBDD(val: any) {
-  //if (val.status == "INVALID") alert("Responde todas las preguntas")
-  //else {
-    //this.subirOrganigrama(this.academias);
-    //this.subirPeriodos(this.periodos);
-    //this.subirMaterias(this.materias);
-    console.log(this.grupos);
-    this.subirGrupos(this.grupos);
-    //this.subirCarreras(this.carreras);
-    //this.subirAlumnos(this.alumnos);
-    //this.subirPersonal(this.docentes);
-    //this.subirSeleccionMat(this.seleccionMaterias);
-    //}
+  if (val.status == "INVALID") alert("Responde todas las preguntas")
+  else {
+      this.subirOrganigrama(this.academias);
+      this.subirPeriodos(this.periodos);
+      this.subirMaterias(this.materias);
+      this.subirGrupos(this.grupos);
+      this.subirCarreras(this.carreras);
+      this.subirAlumnos(this.alumnos);
+      this.subirPersonal(this.docentes);
+      this.subirSeleccionMat(this.seleccionMaterias);
+    }
   }
 
   subirSeleccionMat(SeleccionMat: SeleccionMateria[]) {
