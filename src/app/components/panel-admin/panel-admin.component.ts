@@ -10,6 +10,7 @@ import {Docente} from "../../models/Docente";
 import {SeleccionMateria} from "../../models/SeleccionMateria";
 import {Grupo} from "../../models/Grupo";
 import {CrudService} from "../../services/crud/crud.service";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-panel-admin',
@@ -18,7 +19,7 @@ import {CrudService} from "../../services/crud/crud.service";
 })
 export class PanelAdminComponent implements OnInit {
 
-  constructor(public crud: CrudService) { }
+  constructor(public crud: CrudService, public auth: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -102,16 +103,16 @@ export class PanelAdminComponent implements OnInit {
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Periodos") {
           this.periodos = data.map(item => {
-            return new Periodo(
-              // @ts-ignore
-              item[0],
-              // @ts-ignore
-              item[1],
-              // @ts-ignore
-              item[2],
-              // @ts-ignore
-              item[3]
-            )
+              return new Periodo(
+                // @ts-ignore
+                item[0],
+                // @ts-ignore
+                item[1],
+                // @ts-ignore
+                item[2],
+                // @ts-ignore
+                item[3]
+              )
           });
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Carreras") {
@@ -191,20 +192,18 @@ export class PanelAdminComponent implements OnInit {
   }
 
   SubirBDD(val: any) {
-    // TODO arreglar problema de CORS
-    this.subirOrganigrama(this.academias);
-    /*
-  if (val.status == "INVALID") alert("Responde todas las preguntas")
-  else {
-    this.subirPeriodos(this.periodos);
-    this.subirMaterias(this.materias);
+  //if (val.status == "INVALID") alert("Responde todas las preguntas")
+  //else {
+    //this.subirOrganigrama(this.academias);
+    //this.subirPeriodos(this.periodos);
+    //this.subirMaterias(this.materias);
+    console.log(this.grupos);
     this.subirGrupos(this.grupos);
-    this.subirCarreras(this.carreras);
-    this.subirAlumnos(this.alumnos);
-    this.subirPersonal(this.docentes);
-    this.subirSeleccionMat(this.seleccionMaterias);
-    }
-     */
+    //this.subirCarreras(this.carreras);
+    //this.subirAlumnos(this.alumnos);
+    //this.subirPersonal(this.docentes);
+    //this.subirSeleccionMat(this.seleccionMaterias);
+    //}
   }
 
   subirSeleccionMat(SeleccionMat: SeleccionMateria[]) {

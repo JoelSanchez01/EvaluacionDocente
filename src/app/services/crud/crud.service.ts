@@ -49,6 +49,6 @@ export class CrudService {
   }
 
   addGroup(groupData: Grupo[]) {
-    return this.http.post<Grupo[]>(this.baseUrl + "/group/addAll.php", groupData);
+    return this.http.post<Grupo[]>(`${this.baseUrl}/group/addAll.php`, groupData);
   }
 }

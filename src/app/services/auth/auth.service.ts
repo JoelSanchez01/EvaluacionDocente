@@ -29,23 +29,23 @@ export class AuthService {
     const expiresAt = moment().add(authResult.expiresIn,'second');
 
     localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('control', authResult.control)
-    localStorage.setItem('nombre', authResult.nombre_completo)
-    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+    localStorage.setItem('control', authResult.control);
+    localStorage.setItem('nombre', authResult.nombre_completo);
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
 
   private static setAdminSession(authResult: any) {
     const expiresAt = moment().add(authResult.expiresIn,'second');
 
     localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('usuario', authResult.usuario)
+    localStorage.setItem('usuario', authResult.usuario);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 
   logout() {
     localStorage.removeItem("id_token");
     localStorage.removeItem("usuario");
-    localStorage.removeItem('nombre')
+    localStorage.removeItem('nombre');
     localStorage.removeItem("expires_at");
   }
 
