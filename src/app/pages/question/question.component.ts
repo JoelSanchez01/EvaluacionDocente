@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { maestros } from "../../maestros"
-import { preguntas } from "../../preguntas"
+import {Component, OnInit} from '@angular/core';
+import {maestros} from "../../maestros"
+import {preguntas} from "../../preguntas"
+import {Materias} from "../../models/Materias";
+import {CrudService} from "../../services/crud/crud.service";
+import {map} from "rxjs/operators";
+import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth/auth.service";
+
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
@@ -8,9 +14,9 @@ import { preguntas } from "../../preguntas"
 })
 export class QuestionComponent implements OnInit {
 
-  constructor() {
-    this.nombreEstudiante = <string> localStorage.getItem("nombre");
-
+  constructor(private crud: CrudService, private router: Router, private auth: AuthService) {
+    this.nombreEstudiante = <string>localStorage.getItem("usuario");
+    this.control = <string>localStorage.getItem("usuario");
   }
 
   ngOnInit(): void {
@@ -19,13 +25,14 @@ export class QuestionComponent implements OnInit {
   araregloNumeros: Number[] = [5, 4, 3, 2, 1]
   nombreEstudiante: String = "Tilin Martinez Hernandez"
   maestrosclase = maestros;
+  maestrosMaterias!: Materias[];
+  control: string = "";
 
   numero: String = "";
   validator: boolean = true;
   preguntaIDL: number = 0;
 
   preguntaPagina = preguntas[this.preguntaIDL];
-
 
 
   getValues(val: any) {
@@ -36,7 +43,6 @@ export class QuestionComponent implements OnInit {
       for (let i = 0; this.maestrosclase.length > i; i++) {
 
         if (this.maestrosclase[i].grupo == Object.entries(val.value)[i][0]) {
-
 
 
           if (this.preguntaPagina.ID <= 5)
@@ -59,7 +65,6 @@ export class QuestionComponent implements OnInit {
             this.maestrosclase[i].catTicsI = this.maestrosclase[i].catTicsI + (Number(Object.entries(val.value)[i][1]));
           else if (this.preguntaPagina.ID <= 48)
             this.maestrosclase[i].catSatisfaccionJ = this.maestrosclase[i].catSatisfaccionJ + (Number(Object.entries(val.value)[i][1]));
-
 
 
           if (this.preguntaPagina.ID == 48) {
@@ -91,9 +96,9 @@ export class QuestionComponent implements OnInit {
       this.preguntaIDL++;
       this.preguntaPagina = preguntas[this.preguntaIDL];
       val.reset();
-    };
+    }
+    ;
   }
-
 
 
 }

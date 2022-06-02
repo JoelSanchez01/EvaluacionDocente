@@ -16,6 +16,12 @@ export class LoginAdminComponent implements OnInit {
     public auth: AuthService,
     public router: Router
   ) {
+    if(this.auth.isLoggedIn()) {
+      if(!localStorage.getItem("nombre"))
+        router.navigate(['admin']);
+      else
+        router.navigate(['preguntas']);
+    }
     this.loginAdminForm = form.group({
       usuario: [''],
       contrasena: ['']
