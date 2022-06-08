@@ -42,6 +42,22 @@ h2 {
 
 }
 
+.form-control{
+  background-color: white;
+  border-radius:10px;
+  box-shadow:5px 5px 10px $grays-lightgray;
+  outline:none;
+  font-weight: bold;
+}
+
+::-webkit-file-upload-button{
+
+  color:white;
+  background:$primary-100;
+  border:none;
+  outline:none;
+}
+
 .file_sub {
   position: relative;
   margin: 50px;
@@ -153,8 +169,38 @@ input#subir {
   background-color: $primary-100;
 }
 
+.botonCerrar {
+  padding: 15px;
+  border-radius: 10px;
+  border: 0;
+  width: 150px;
+  background-color: $primary-100;
+  color: white;
+  font-family: $font-ubuntu;
+  font-weight: bold;
+  font-size: 18px;
+  float: right;
+  margin-top: 50px;
+}
+.botonModal {
+  margin-bottom:15px;
 
+  border-radius: 10px;
+  border: 0;
+  width: 50px;
 
+  color: $primary-100;
+  font-family: $font-ubuntu;
+  font-weight: bold;
+  font-size: 18px;
+  background-image: url(../../../assets/images/akar-icons_question.png);
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.nombreArchivo{
+  display:flex;
+}
 @media (max-width: 950px) {
 
 

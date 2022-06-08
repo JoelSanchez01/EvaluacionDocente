@@ -14,7 +14,35 @@
         <tr class="temas">
           <th>Materia</th>
           <th>Maestro</th>
-          <th>Calificación</th>
+          <div class="calificacionModal">
+            <th>Calificación</th>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="botonModal" data-toggle="modal" data-target="#myModal">.</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Puntuaciones</h4>
+                  </div>
+                  <div class="modal-body" >
+                    <p>5 - Sobresaliente<br>
+                      4 - Notable <br>
+                      3 - Bien <br>
+                      2 - Suficiente.<br>
+                      1 - Insuficiente</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="botonCerrar" data-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
         </tr>
         <tr *ngFor="let maestro of materiasDocentes" class="datos">
           <td class="materia">{{ maestro.materia }}</td>

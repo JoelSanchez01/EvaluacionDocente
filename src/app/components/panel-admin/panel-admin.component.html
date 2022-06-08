@@ -2,7 +2,30 @@
   <h2>Cargar archivos para la base de datos</h2>
   <form class="form" #FormUpload="ngForm" (ngSubmit)="SubirBDD(FormUpload)">
     <div class="subir" *ngFor="let archivo of archivos">
+      <div class="nombreArchivo">
       <p class="nombre">{{archivo}}</p>
+      <div >
+          <!-- Trigger the modal with a button -->
+     <button type="button" class="botonModal" data-toggle="modal" [attr.data-target]="'#archivo-' + archivo">.</button>
+
+     <!-- Modal -->
+     <div class="modal fade" id="myModal" role="dialog" id="archivo-{{archivo}}">
+       <div class="modal-dialog" >
+
+         <!-- Modal content-->
+         <div class="modal-content">
+           <div class="modal-body" >
+             <p>Ingresa un archivo {{archivo}}.xlsx</p>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="botonCerrar" data-dismiss="modal">Cerrar</button>
+           </div>
+         </div>
+
+       </div>
+     </div>
+      </div>
+    </div>
       <input class="form-control" name={{archivo}} ngModel type="file" id="formFile" lang="es"
         (change)="fileUpload($event)" required="required">
     </div>
@@ -13,5 +36,4 @@
     </div>
   </form>
   <br>
-
 </div>
