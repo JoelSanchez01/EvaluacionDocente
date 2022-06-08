@@ -1,9 +1,9 @@
+import { MateriaDocente } from "./MateriaDocente";
 import {Categorias} from "./submodels/Categorias";
 
 export class ResultadoDocente {
   constructor(
-    public rfc: string,
-    public control: string,
+    public materias: MateriaDocente,
     public categorias: Categorias
   ) {
   }

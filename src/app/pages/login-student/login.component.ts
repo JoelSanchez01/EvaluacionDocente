@@ -16,13 +16,6 @@ export class LoginComponent implements OnInit {
     public auth: AuthService,
     public router: Router)
   {
-    if(this.auth.isLoggedIn()) {
-      if(!localStorage.getItem("nombre"))
-        router.navigate(['admin']);
-      else
-        router.navigate(['preguntas']);
-    }
-
     this.loginForm = form.group({
       control: [''],
       nip: ['']

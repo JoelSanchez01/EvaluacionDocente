@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 import { Alumno } from "../../models/Alumno";
 import moment from "moment";
@@ -11,6 +11,7 @@ import { Admin } from "../../models/Admin";
 })
 
 export class AuthService {
+  //public baseUrl: string = 'https://gneissoid-gasolines.000webhostapp.com/api';
   public baseUrl: string = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
@@ -29,7 +30,7 @@ export class AuthService {
     const expiresAt = moment().add(authResult.expiresIn,'second');
 
     localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('control', authResult.control);
+    localStorage.setItem('usuario', authResult.control);
     localStorage.setItem('nombre', authResult.nombre_completo);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }

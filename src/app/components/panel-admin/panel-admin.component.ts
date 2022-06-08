@@ -33,7 +33,7 @@ export class PanelAdminComponent implements OnInit {
   grupos: Grupo[] = [];
   seleccionMaterias: SeleccionMateria[] = [];
 
-  archivos: String[] = ["Organigrama", "Materias", "Alumnos", "Periodos", "Carreras", "Personal", "Grupos", "Seleccion de Materias"];
+  archivos: String[] = ["Organigrama", "Materias", "Alumnos", "Periodos", "Carreras", "Personal", "Grupos", "Seleccion de MateriaDocente"];
 
   fileUpload(event1: any) {
 
@@ -172,7 +172,7 @@ export class PanelAdminComponent implements OnInit {
             )
           })
         }
-        if (event1.srcElement.__ngContext__[8].$implicit == "Seleccion de Materias") {
+        if (event1.srcElement.__ngContext__[8].$implicit == "Seleccion de MateriaDocente") {
           this.seleccionMaterias = data.map(item => {
             return new SeleccionMateria(
               // @ts-ignore
