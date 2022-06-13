@@ -7,7 +7,7 @@ import {AdminComponent} from "./pages/admin/admin.component";
 import {AuthGuard} from "./services/auth/guards/auth.guard";
 import {QuestionComponent} from "./pages/question/question.component";
 import {AuthAdminGuard} from "./services/auth/guards/auth-admin.guard";
-import {MenuadminComponent} from "./components/menuadmin/menuadmin.component";
+import {MenuadminComponent} from "./pages/menuadmin/menuadmin.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
