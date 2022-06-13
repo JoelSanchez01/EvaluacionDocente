@@ -7,14 +7,14 @@ import {AdminComponent} from "./pages/admin/admin.component";
 import {AuthGuard} from "./services/auth/guards/auth.guard";
 import {QuestionComponent} from "./pages/question/question.component";
 import {AuthAdminGuard} from "./services/auth/guards/auth-admin.guard";
-import {MenuadminComponent} from "./pages/menuadmin/menuadmin.component";
+import {MenuAdminComponent} from "./pages/menu-admin/menu-admin.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   { path: 'login-admin', component: LoginAdminComponent },
   { path: 'preguntas', component: QuestionComponent, canActivate: [AuthGuard]},
-  { path: 'admin', component: MenuadminComponent, canActivate: [AuthAdminGuard]},
+  { path: 'admin', component: MenuAdminComponent, canActivate: [AuthAdminGuard]},
 ];
 
 @NgModule({

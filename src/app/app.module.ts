@@ -15,7 +15,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './pages/admin/admin.component';
 import { QuestionComponent } from './pages/question/question.component';
-import { MenuadminComponent } from './pages/menuadmin/menuadmin.component';
+import { MenuAdminComponent } from './pages/menu-admin/menu-admin.component';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { MenuadminComponent } from './pages/menuadmin/menuadmin.component';
     LoginAdminComponent,
     QuestionComponent,
     AdminComponent,
-    MenuadminComponent
+    MenuAdminComponent
   ],
   imports: [
     BrowserModule,
