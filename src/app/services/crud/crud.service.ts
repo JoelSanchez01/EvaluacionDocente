@@ -49,8 +49,8 @@ export class CrudService {
     return this.http.post<Grupo[]>(`${this.baseUrl}/group/addAll.php`, groupData);
   }
 
-  addTeacherScore(resultadoDocentes: ResultadoDocente[]) {
-    return this.http.post<ResultadoDocente[]>(`${this.baseUrl}/evaluation/addTeacherResults.php`, resultadoDocentes);
+  addTeachersScore(control: string, resultadosDocentes: ResultadoDocente[]) {
+    return this.http.post<ResultadoDocente[]>(`${this.baseUrl}/evaluation/addTeachersResults.php`, {control: control, resultados: resultadosDocentes});
   }
   //
   // GET Methods
