@@ -16,6 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './pages/admin/admin.component';
 import { QuestionComponent } from './pages/question/question.component';
 import { MenuAdminComponent } from './pages/menu-admin/menu-admin.component';
+import { EditDatabaseComponent } from './pages/edit-database/edit-database.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MenuAdminComponent } from './pages/menu-admin/menu-admin.component';
     LoginAdminComponent,
     QuestionComponent,
     AdminComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
+    EditDatabaseComponent
   ],
   imports: [
     BrowserModule,
