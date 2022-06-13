@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-menu-admin',
@@ -8,12 +9,17 @@ import { Router } from "@angular/router";
 })
 export class MenuAdminComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth : AuthService) { }
 
   ngOnInit(): void {
   }
 
-  public goToEditing() {
+  goToEditing() {
     this.router.navigate(['edit-database']);
+  }
+
+  adminLogout() {
+    this.auth.logout();
+    this.router.navigate(['login-admin'])
   }
 }
