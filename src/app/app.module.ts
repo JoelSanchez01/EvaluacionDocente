@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { AdminComponent } from './pages/admin/admin.component';
 import { QuestionComponent } from './pages/question/question.component';
+import { MenuadminComponent } from './components/menuadmin/menuadmin.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { QuestionComponent } from './pages/question/question.component';
     LoginComponent,
     LoginAdminComponent,
     QuestionComponent,
-    AdminComponent
+    AdminComponent,
+    MenuadminComponent
   ],
   imports: [
     BrowserModule,
