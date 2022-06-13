@@ -90,8 +90,8 @@ export class QuestionComponent implements OnInit {
           this.resultadoDocentes[i].categorias.catJ = this.resultadoDocentes[i].categorias.catJ / 3;
 
           alert("YA TERMINASTE");
+          this.crud.addTeachersScore(this.control, this.resultadoDocentes).subscribe();
           this.auth.logout();
-
           break;
         }
         //}
