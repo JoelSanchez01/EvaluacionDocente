@@ -1,0 +1,39 @@
+<!--suppress XmlInvalidId -->
+<div class="loginScreen">
+  <div class="formEstudent">
+    <div class="bordeImagen">
+      <img src="../../../assets/images/estudent.svg" alt="" class="imagen" />
+    </div>
+    <h2>Inicia Sesión</h2>
+    <form [formGroup]="loginForm"  (ngSubmit)="sendCredentials()"  class="formulario">
+      <div class="form__group field">
+        <input
+          type="text"
+          class="form__field"
+          placeholder="Numero de Control"
+          name="control"
+          id="control"
+          formControlName="control"
+          required
+        />
+        <label for="control" class="form__label">Número de Control</label>
+      </div>
+
+      <div class="form__group field">
+        <input
+          type="password"
+          class="form__field"
+          placeholder="Contraseña"
+          name="nip"
+          id="nip"
+          formControlName="nip"
+          required
+        />
+        <label for="nip" class="form__label">Contraseña</label>
+      </div>
+
+      <button class="botonIniciar" type="submit">Iniciar sesión</button>
+    </form>
+    <p><a routerLink="/login-admin" routerLinkActive="active">¿Eres administrador?</a></p>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="loginScreen">
+  <div class="formEstudent">
+    <div class="bordeImagen">
+      <img src="../../../assets/images/admin.svg" alt="" class="imagen" />
+    </div>
+    <h2>Inicia Sesión</h2>
+    <form [formGroup]="loginAdminForm" (ngSubmit)="sendCredentials()" class="formulario">
+      <div class="form__group field">
+        <input
+          type="text"
+          class="form__field"
+          placeholder="Usuario"
+          name="usuario"
+          id="usuario"
+          formControlName="usuario"
+          required
+        />
+        <label for="usuario" class="form__label">Usuario</label>
+      </div>
+
+      <div class="form__group field">
+        <input
+          type="password"
+          class="form__field"
+          placeholder="Contrasena"
+          name="contrasena"
+          id="contrasena"
+          formControlName="contrasena"
+          required
+        />
+        <label for="contrasena" class="form__label">Contraseña</label>
+      </div>
+
+      <button class="botonIniciar" type="submit">Iniciar sesión</button>
+    </form>
+    <p><a routerLink="/" routerLinkActive="active">¿Eres estudiante?</a></p>
+  </div>
+</div>

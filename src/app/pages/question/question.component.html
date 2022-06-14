@@ -1,0 +1,67 @@
+<!--suppress XmlInvalidId -->
+<div class="question">
+  <div class="question_header">
+    <h2>Evaluación docente 2022</h2>
+    <p>{{ nombreEstudiante }}</p>
+  </div>
+  <div *ngIf="!cargando" class="question_box">
+    <p class="question_number">PREGUNTA {{preguntaPagina.ID}}</p>
+    <p class="question_text">{{preguntaPagina.pregunta}}</p>
+  </div>
+  <div class="question_answer">
+    <form #SimpleForm="ngForm" (ngSubmit)="getValues(SimpleForm)" action="" class="formularios" id="formulario">
+      <table>
+        <tr class="temas">
+          <th>Materia</th>
+          <th>Maestro</th>
+          <div class="calificacionModal">
+            <th>Calificación</th>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="botonModal" data-toggle="modal" data-target="#myModal">.</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Puntuaciones</h4>
+                  </div>
+                  <div class="modal-body" >
+                    <p>5 - Sobresaliente<br>
+                      4 - Notable <br>
+                      3 - Bien <br>
+                      2 - Suficiente.<br>
+                      1 - Insuficiente</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="botonCerrar" data-dismiss="modal">Cerrar</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </tr>
+        <tr *ngFor="let maestro of materiasDocentes" class="datos">
+          <td class="materia">{{ maestro.materia }}</td>
+          <td class="nombre">{{ maestro.nombre_docente }}</td>
+          <td class="radios">
+            <div class="forms">
+              <label *ngFor="let numero of araregloNumeros">
+                <input ngModel class="input_radio" type="radio" id="{{numero}}" name="{{ maestro.rfc_docente }}"
+                       required="required" value="{{numero}}" />
+                {{numero}}
+              </label>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="endTable">
+        <p>Pregunta {{preguntaPagina.ID}} de 48</p>
+        <button type="submit" class="enviar" form="formulario">Siguiente </button>
+      </div>
+    </form>
+  </div>
+</div>
