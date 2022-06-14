@@ -16,6 +16,13 @@ export class LoginComponent implements OnInit {
     public auth: AuthService,
     public router: Router)
   {
+    /**
+     * @brief this if is a workaound
+     * @TODO we need to remove this at deploy
+     */
+    if(this.auth.isLoggedIn()) {
+      this.auth.logout();
+    }
     this.loginForm = form.group({
       control: [''],
       nip: ['']
