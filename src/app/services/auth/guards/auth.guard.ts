@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
       if (this.auth.isLoggedOut()) {
         window.alert("Sesion expirada");
         this.router.navigate(['login']);
+        this.auth.logout();
         return false;
       }
       return true;
@@ -28,5 +29,4 @@ export class AuthGuard implements CanActivate {
     this.router.navigate(['login']);
     return false;
   }
-
 }
