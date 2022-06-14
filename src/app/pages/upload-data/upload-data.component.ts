@@ -13,11 +13,11 @@ import {CrudService} from "../../services/crud/crud.service";
 import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
-  selector: 'app-panel-admin',
-  templateUrl: './panel-admin.component.html',
-  styleUrls: ['./panel-admin.component.scss']
+  selector: 'app-upload-data',
+  templateUrl: './upload-data.component.html',
+  styleUrls: ['./upload-data.scss']
 })
-export class PanelAdminComponent implements OnInit {
+export class UploadDataComponent implements OnInit {
 
   constructor(public crud: CrudService, public auth: AuthService) { }
 

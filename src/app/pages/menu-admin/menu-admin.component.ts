@@ -20,6 +20,10 @@ export class MenuAdminComponent implements OnInit {
 
   adminLogout() {
     this.auth.logout();
-    this.router.navigate(['login-admin'])
+    this.router.navigate(['login-admin']);
+  }
+
+  uploadScreen() {
+    this.router.navigate(['upload-data']);
   }
 }
