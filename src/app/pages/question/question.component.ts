@@ -34,8 +34,6 @@ export class QuestionComponent implements OnInit {
     this.nombreEstudiante = <string>localStorage.getItem("nombre");
     this.control = <string>localStorage.getItem("usuario");
 
-    //this.materiasDocentes = <MateriaDocente[]> this.crud.getSubjectsAndTeachers(this.control);
-
     this.crud.getTeachersAndSubjects(this.control).subscribe(data => {
       this.materiasDocentes = <MateriaDocente[]> data;
       this.resultadoDocentes = this.materiasDocentes.map((item) => {
@@ -90,8 +88,8 @@ export class QuestionComponent implements OnInit {
           this.resultadoDocentes[i].categorias.catJ = this.resultadoDocentes[i].categorias.catJ / 3;
 
           alert("YA TERMINASTE");
+          this.crud.addTeachersScore(this.control, this.resultadoDocentes).subscribe();
           this.auth.logout();
-
           break;
         }
         //}

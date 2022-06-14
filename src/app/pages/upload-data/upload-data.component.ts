@@ -13,11 +13,11 @@ import {CrudService} from "../../services/crud/crud.service";
 import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
-  selector: 'app-panel-admin',
-  templateUrl: './panel-admin.component.html',
-  styleUrls: ['./panel-admin.component.scss']
+  selector: 'app-upload-data',
+  templateUrl: './upload-data.component.html',
+  styleUrls: ['./upload-data.scss']
 })
-export class PanelAdminComponent implements OnInit {
+export class UploadDataComponent implements OnInit {
 
   constructor(public crud: CrudService, public auth: AuthService) { }
 
@@ -33,7 +33,7 @@ export class PanelAdminComponent implements OnInit {
   grupos: Grupo[] = [];
   seleccionMaterias: SeleccionMateria[] = [];
 
-  archivos: String[] = ["Organigrama", "Materias", "Alumnos", "Periodos", "Carreras", "Personal", "Grupos", "Seleccion de MateriaDocente"];
+  archivos: String[] = ["Organigrama", "Materias", "Alumnos", "Periodos", "Carreras", "Personal", "Grupos", "Seleccion de Materias"];
 
   fileUpload(event1: any) {
 
@@ -172,7 +172,7 @@ export class PanelAdminComponent implements OnInit {
             )
           })
         }
-        if (event1.srcElement.__ngContext__[8].$implicit == "Seleccion de MateriaDocente") {
+        if (event1.srcElement.__ngContext__[8].$implicit == "Seleccion de Materias") {
           this.seleccionMaterias = data.map(item => {
             return new SeleccionMateria(
               // @ts-ignore

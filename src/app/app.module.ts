@@ -6,16 +6,18 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login-student/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginAdminComponent } from './pages/login-admin/login-admin.component';
-import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
+import { UploadDataComponent } from './pages/upload-data/upload-data.component';
 import { ControlPeriodoComponent } from './components/control-periodo/control-periodo.component';
 import { ResultadosComponent } from './components/resultados/resultados.component';
 
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { AdminComponent } from './pages/admin/admin.component';
 import { QuestionComponent } from './pages/question/question.component';
-import { MenuadminComponent } from './components/menuadmin/menuadmin.component';
+import { MenuAdminComponent } from './pages/menu-admin/menu-admin.component';
+import { EditDatabaseComponent } from './pages/edit-database/edit-database.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -25,20 +27,23 @@ import { MenuadminComponent } from './components/menuadmin/menuadmin.component';
     NavbarComponent,
     ControlPeriodoComponent,
     ResultadosComponent,
-    PanelAdminComponent,
+    UploadDataComponent,
 
     LoginComponent,
     LoginAdminComponent,
     QuestionComponent,
     AdminComponent,
-    MenuadminComponent
+    MenuAdminComponent,
+    EditDatabaseComponent,
+    UploadDataComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

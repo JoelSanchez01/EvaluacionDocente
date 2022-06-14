@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuadminComponent } from './menuadmin.component';
+import { UploadDataComponent } from './upload-data.component';
 
-describe('MenuadminComponent', () => {
-  let component: MenuadminComponent;
-  let fixture: ComponentFixture<MenuadminComponent>;
+describe('UploadDataComponent', () => {
+  let component: UploadDataComponent;
+  let fixture: ComponentFixture<UploadDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuadminComponent ]
+      declarations: [ UploadDataComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuadminComponent);
+    fixture = TestBed.createComponent(UploadDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

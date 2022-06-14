@@ -20,6 +20,7 @@ export class AuthAdminGuard implements CanActivate {
       if (this.auth.isLoggedOut()) {
         window.alert("Sesion expirada");
         this.router.navigate(['login-admin']);
+        this.auth.logout();
         return false;
       }
       return true;

@@ -230,7 +230,45 @@ input[type='radio']:checked:after {
 [id='1']:after {
   border: 2px solid #FC3B3B;
 }
+.calificacionModal{
+    display:flex;
+    text-align: center;
+    p{
+      font-size: 16px;
+    }
+    h4{
+      font-size:20px;
+    }
+}
 
+.botonModal {
+  margin-bottom:15px;
+
+  border-radius: 10px;
+  border: 0;
+  width: 50px;
+
+  color: $primary-100;
+  font-family: $font-ubuntu;
+  font-weight: bold;
+  font-size: 18px;
+  background-image: url(../../../assets/images/akar-icons_question.png);
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.botonCerrar {
+  padding: 15px;
+  border-radius: 10px;
+  border: 0;
+  width: 150px;
+  background-color: $primary-100;
+  color: white;
+  font-family: $font-ubuntu;
+  font-weight: bold;
+  font-size: 18px;
+  float: right;
+  margin-top: 50px;
+}
 @media(max-width:950px) {
 
   table tr {
