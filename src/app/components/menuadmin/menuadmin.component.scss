@@ -8,10 +8,10 @@
   button{
   background-color: $background-lighter;
   display:inline-block;
-  margin-right:2%;
+  margin-right:5%;
   margin-bottom: 2%;
-  width:300px;
-  height: 300px;
+  width:230px;
+  height: 230px;
   border-color:$background-lighter;
   justify-content: center;
   align-items: center;
@@ -29,8 +29,8 @@
 }
 
 .image {
-  width:150px;
-  height:150px;
+  width:100px;
+  height:100px;
   display:block;
   margin:10px auto 0px auto;
 }
@@ -38,7 +38,7 @@
 .text {
   color:$primary-100;
   margin: 10px auto 0px auto;
-  font-size:20pt;
+  font-size:14pt;
   text-align:center;
   font-weight: bold;
   font-family:$font-ubuntu;
