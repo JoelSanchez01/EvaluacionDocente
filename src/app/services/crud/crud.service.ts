@@ -1,6 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import {Alumno} from "../../models/Alumno";
@@ -51,6 +49,10 @@ export class CrudService {
 
   addTeachersScore(control: string, resultadosDocentes: ResultadoDocente[]) {
     return this.http.post<ResultadoDocente[]>(`${this.baseUrl}/evaluation/addTeachersResults.php`, {control: control, resultados: resultadosDocentes});
+  }
+  //DELTE METHODS
+  truncateAllData(username: string, password: string) {
+    return this.http.post(`${this.baseUrl}/evaluation/truncateAllData.php`, {user: username, password: password});
   }
   //
   // GET Methods

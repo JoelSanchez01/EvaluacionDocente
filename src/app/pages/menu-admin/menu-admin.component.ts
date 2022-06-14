@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {AuthService} from "../../services/auth/auth.service";
+import {CrudService} from "../../services/crud/crud.service";
 
 @Component({
   selector: 'app-menu-admin',
@@ -9,7 +10,7 @@ import {AuthService} from "../../services/auth/auth.service";
 })
 export class MenuAdminComponent implements OnInit {
 
-  constructor(private router: Router, private auth : AuthService) { }
+  constructor(private router: Router, private auth : AuthService, private crud : CrudService) { }
 
   ngOnInit(): void {
   }
@@ -25,5 +26,14 @@ export class MenuAdminComponent implements OnInit {
 
   uploadScreen() {
     this.router.navigate(['upload-data']);
+  }
+
+  deleteData() {
+    let contrasena = <string> window.prompt("¿Está seguro que desea borrar la base de datos? Introduzca su contreseña");
+    let usuario = <string> localStorage.getItem("usuario");
+    if(contrasena) {
+      this.crud.truncateAllData(usuario, contrasena);
+      console.log(contrasena);
+    }
   }
 }
