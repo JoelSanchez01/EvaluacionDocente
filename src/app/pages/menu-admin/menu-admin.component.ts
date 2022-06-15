@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import {AuthService} from "../../services/auth/auth.service";
@@ -24,12 +25,18 @@ export class MenuAdminComponent implements OnInit {
     this.router.navigate(['login-admin']);
   }
 
+  getStartDate(startValue:string){
+    console.log(startValue);
+  }
+  getStopDate(stopValue:string){
+    console.log(stopValue);
+  }
   uploadScreen() {
     this.router.navigate(['upload-data']);
   }
 
   deleteData() {
-    let contrasena = <string> window.prompt("¿Está seguro que desea borrar la base de datos? Introduzca su contreseña");
+    let contrasena = <string> window.prompt("¿Está seguro que desea borrar la base de datos? Introduzca su contraseña");
     let usuario = <string> localStorage.getItem("usuario");
     if(contrasena) {
       this.crud.truncateAllData(usuario, contrasena);
