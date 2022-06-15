@@ -26,38 +26,83 @@
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
         </mat-form-field>
 
-        <div class="mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource" matSort>
+        <div class="mat-elevation-z8" *ngIf="Seleccionador == 'Alumnos'">
+            <table mat-table [dataSource]="dataSource" matSort class="TableAlumnos">
 
-                <ng-container matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                    <td mat-cell *matCellDef="let row"> {{row.control}} </td>
+                <ng-container matColumnDef="NC">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Numero de Control </th>
+                    <td mat-cell *matCellDef="let row">
+                        <input type="text" name="control" id="" value="{{row.control}}" [disabled]="AlumnosDisabled">
+                    </td>
                 </ng-container>
 
-                <!-- Progress Column -->
-                <ng-container matColumnDef="progress">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
-                    <td mat-cell *matCellDef="let row"> {{row.nombre_completo}} </td>
+                <ng-container matColumnDef="Clave">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Clave Carrera </th>
+                    <td mat-cell *matCellDef="let row">
+                        <input type="text" name="clave" id="" value="{{row.clave_carrera}}"
+                            [disabled]="AlumnosDisabled">
+                    </td>
                 </ng-container>
 
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-                    <td mat-cell *matCellDef="let row"> {{row.semestre}} </td>
+                <ng-container matColumnDef="Reticula">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Reticula </th>
+                    <td mat-cell *matCellDef="let row">
+                        <input type="text" name="reticula" id="" value="{{row.reticula}}" [disabled]="AlumnosDisabled">
+                    </td>
                 </ng-container>
 
-                <!-- Fruit Column -->
-                <ng-container matColumnDef="fruit">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fruit </th>
-                    <td mat-cell *matCellDef="let row"> {{row.nip}} </td>
+                <ng-container matColumnDef="Semestre">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Semestre </th>
+                    <td mat-cell *matCellDef="let row">
+                        <input type="text" name="semestre" id="" value=" {{row.semestre}}" [disabled]="AlumnosDisabled">
+                    </td>
                 </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <ng-container matColumnDef="Estado">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+                    <td mat-cell *matCellDef="let row">
+                        <input type="text" name="estado" id="" value="{{row.estado}}" [disabled]="AlumnosDisabled">
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="planEstudios">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Plan </th>
+                    <td mat-cell *matCellDef="let row">
+                        <input type="text" name="plan" id="" value="{{row.plan_estudios}}" [disabled]="AlumnosDisabled">
+
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Nombre">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                    <td mat-cell *matCellDef="let row">
+                        <input type="text" name="nombre" id="" value="{{row.nombre_completo}}"
+                            [disabled]="AlumnosDisabled">
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="NIP">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> NIP </th>
+                    <td mat-cell *matCellDef="let row">
+                        <input type="text" name="nip" id="" value="{{row.nip}}" [disabled]="AlumnosDisabled">
+
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Botones">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Accion </th>
+                    <td mat-cell *matCellDef="let row">
+                        <button (click)="Editar(row.control, row)">E</button>
+                        <button (click)="Borrar(row.control, Seleccionador)">D</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsAlumnos"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsAlumnos;"></tr>
 
                 <!-- Row shown when there is no matching data. -->
                 <tr class="mat-row" *matNoDataRow>
-                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    <td class="mat-cell" colspan="8">No data matching the filter "{{input.value}}"</td>
                 </tr>
             </table>
 
@@ -68,6 +113,8 @@
 
 
 
+
+        <Button class="btn btn-success" type="submit">Guardar</Button>
 
     </div>
 

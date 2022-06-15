@@ -1,4 +1,3 @@
-import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { AfterViewInit, Component, KeyValueDiffers, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -24,7 +23,7 @@ import { Alumno } from "../../models/Alumno"
 
 
 export class EditDatabaseComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+  displayedColumnsAlumnos: string[] = ['NC', 'Clave', 'Reticula', 'Semestre', 'Estado', 'planEstudios', 'Nombre', 'NIP', 'Botones'];
   dataSource!: MatTableDataSource<Alumno>;
 
   @ViewChild(MatPaginator)
@@ -37,13 +36,15 @@ export class EditDatabaseComponent implements AfterViewInit {
   cargando: boolean = true;
 
   constructor(public crud: CrudService) {
-    // Create 100 users
-    // Assign the data to the data source for the table to render
+
+    this.Iniciar();
   }
 
   private iterador = 1;
 
 
+
+  AlumnosDisabled: boolean = true;
 
 
   ngAfterViewInit() {
@@ -61,11 +62,16 @@ export class EditDatabaseComponent implements AfterViewInit {
   }
 
 
-  Valores: any[] = []
+
+  Valores: any[] = [];
+
+  Seleccionador = "Alumnos";
+
+
 
   onChange(valor: any) {
-    console.log(valor.value)
     if (valor.value == "Alumnos") {
+      this.Seleccionador = "Alumnos";
       this.Valores.splice(0, this.Valores.length)
       this.crud.getStudent().subscribe(data => {
         this.Valores = data;
@@ -73,11 +79,11 @@ export class EditDatabaseComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.cargando = false;
-        console.log(data)
-
       })
     }
     if (valor.value == "Personal") {
+      this.Seleccionador = "Personal";
+
       this.crud.getTeachers().subscribe(data => {
         this.Valores.splice(0, this.Valores.length)
         this.Valores = data;
@@ -85,11 +91,12 @@ export class EditDatabaseComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.cargando = false;
-        console.log(data)
 
       })
     }
     if (valor.value == "Academias") {
+      this.Seleccionador = "Academias";
+
       this.Valores.splice(0, this.Valores.length)
       this.crud.getAcademy().subscribe(data => {
         this.Valores.splice(0, this.Valores.length)
@@ -98,13 +105,14 @@ export class EditDatabaseComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.cargando = false;
-        console.log(data)
 
       })
 
     }
 
     if (valor.value == "Grupos") {
+      this.Seleccionador = "Grupos";
+
       this.Valores.splice(0, this.Valores.length)
       this.crud.getGroup().subscribe(data => {
         this.Valores.splice(0, this.Valores.length)
@@ -113,13 +121,14 @@ export class EditDatabaseComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.cargando = false;
-        console.log(data)
 
       })
 
     }
 
     if (valor.value == "Periodos") {
+      this.Seleccionador = "Periodos";
+
       this.Valores.splice(0, this.Valores.length)
       this.crud.getPeriod().subscribe(data => {
         this.Valores.splice(0, this.Valores.length)
@@ -128,13 +137,14 @@ export class EditDatabaseComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.cargando = false;
-        console.log(data)
 
       })
 
     }
 
     if (valor.value == "Materias") {
+      this.Seleccionador = "Materias";
+
       this.Valores.splice(0, this.Valores.length)
       this.crud.getSubject().subscribe(data => {
         this.Valores.splice(0, this.Valores.length)
@@ -143,13 +153,14 @@ export class EditDatabaseComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.cargando = false;
-        console.log(data)
 
       })
 
     }
 
     if (valor.value == "Carreras") {
+      this.Seleccionador = "Carreras";
+
       this.Valores.splice(0, this.Valores.length)
       this.crud.getCareer().subscribe(data => {
         this.Valores.splice(0, this.Valores.length)
@@ -158,7 +169,7 @@ export class EditDatabaseComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.cargando = false;
-        console.log(data)
+
 
       })
 
@@ -168,6 +179,44 @@ export class EditDatabaseComponent implements AfterViewInit {
 
 
   }
+
+  Iniciar() {
+    this.Seleccionador = "Alumnos";
+    this.Valores.splice(0, this.Valores.length)
+    this.crud.getStudent().subscribe(data => {
+      this.Valores = data;
+      this.dataSource = new MatTableDataSource(this.Valores);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.cargando = false;
+    })
+  }
+
+
+  Editar(id: any, objeto: any) {
+    this.AlumnosDisabled = !this.AlumnosDisabled;
+
+  }
+
+  otro: any[] = [];
+
+
+
+  Borrar(id: any, tabla: any) {
+    if (tabla == "Alumnos") {
+      this.otro = this.Valores.filter(item => item.control != id)
+      this.Valores = this.otro;
+      this.dataSource = new MatTableDataSource(this.Valores);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.cargando = false;
+    }
+
+  }
+
+
+
+
 
 
 }

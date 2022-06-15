@@ -20,9 +20,34 @@ table {
     width: 100%;
 }
 
-td,
-th {
-    width: 25%;
+.TableAlumnos td,
+.TableAlumnos th {
+    width: 3%;
+}
+
+.TableAlumnos td input,
+.TableAlumnos th input {
+    width: 50%;
+}
+
+.TableAlumnos td:nth-child(1),
+.TableAlumnos th:nth-child(1) {
+    width: 5%;
+}
+
+.TableAlumnos td:nth-child(7),
+.TableAlumnos th:nth-child(7) {
+    width: 15%;
+}
+
+.TableAlumnos td:nth-child(1) input,
+.TableAlumnos th:nth-child(1) input {
+    width: 80%;
+}
+
+.TableAlumnos td:nth-child(7) input,
+.TableAlumnos th:nth-child(7) input {
+    width: 80%;
 }
 
 .lds-ring {
