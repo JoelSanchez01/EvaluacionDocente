@@ -17,6 +17,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { QuestionComponent } from './pages/question/question.component';
 import { MenuAdminComponent } from './pages/menu-admin/menu-admin.component';
 import { EditDatabaseComponent } from './pages/edit-database/edit-database.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { EditDatabaseComponent } from './pages/edit-database/edit-database.compo
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
