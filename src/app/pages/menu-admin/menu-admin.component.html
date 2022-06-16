@@ -13,17 +13,63 @@
   </div>
 </button>
  <!---->
- <button class="boton">
+<button type="boton" class="botonModal" data-toggle="modal" data-target="#modalInicio">
   <img class="image" src="../../../assets/images/akar-icons_play.png" alt="Icono de inicio"/>
   <div class="text">
-  Iniciar evaluación
-  </div>
+    Iniciar evaluación
+    </div>
 </button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalInicio" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Fecha de inicio</h4>
+      </div>
+      <div class="modal-body">
+        <input #inicioFecha type="datetime-local">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="botonGuardar" data-dismiss="modal" (click)="getStartDate(inicioFecha.value)">Fijar fecha</button>
+      </div>
+    </div>
+
+  </div>
+</div>
  <!---->
- <button class="boton">
+ <button class="boton" data-toggle="modal" data-target="#modalFinal">
   <img class="image" src="../../../assets/images/akar-icons_square.png" alt="Icono de alto"/>
   <div class="text">
  Terminar Evaluación
+  </div>
+</button>
+<!-- Modal -->
+<div class="modal fade" id="modalFinal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Fecha de final</h4>
+      </div>
+      <div class="modal-body" >
+        <input #finalFecha type="datetime-local">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="botonGuardar" data-dismiss="modal" (click)="getStopDate(finalFecha.value)">Fijar fecha</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!---->
+<button class="boton">
+  <img class="image" src="../../../assets/images/icons8-en-progreso-100.png" alt="Icono de progreso"/>
+  <div class="text">
+  Progreso
   </div>
 </button>
  <!---->
