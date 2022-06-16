@@ -1,29 +1,14 @@
 <div class="body-editDB">
     <h2>Seleccione la tabla que desea</h2>
     <div class="select-dropdown">
-        <select (change)="onChange($event.target)" name="Tabla">
+        <select name="Tabla" id="">
             <option value="Alumnos">Alumnos</option>
             <option value="Personal">Personal</option>
             <option value="Academias">Academias</option>
             <option value="Periodos">Periodos</option>
             <option value="Materias">Materias</option>
-            <option value="Grupos">Grupos</option>
-            <option value="Carreras">Carreras</option>
         </select>
-
     </div>
-
-
-
-    <div class="tabla">
-
-        <app-table-students *ngIf="Seleccionador=='Alumnos'"></app-table-students>
-        <app-table-teacher *ngIf="Seleccionador=='Personal'"></app-table-teacher>
-        <app-table-academy *ngIf="Seleccionador=='Academias'"></app-table-academy>
-        <app-table-period *ngIf="Seleccionador=='Periodos'"></app-table-period>
-        <app-table-subject *ngIf="Seleccionador=='Materias'"></app-table-subject>
-        <app-table-group *ngIf="Seleccionador=='Grupos'"></app-table-group>
-        <app-table-career *ngIf="Seleccionador=='Carreras'"></app-table-career>
-    </div>
+    <div class="tabla"></div>
 
 </div>
