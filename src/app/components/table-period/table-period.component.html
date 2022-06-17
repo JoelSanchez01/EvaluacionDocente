@@ -1,7 +1,7 @@
 <div>
     <mat-form-field appearance="standard">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo. Joel" #input>
     </mat-form-field>
 
     <div class="mat-elevation-z8">
@@ -54,5 +54,6 @@
     </div>
 
 
+    <button class="btn btn-success" (click)="guardarBD()">Guardar</button>
 
 </div>

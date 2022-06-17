@@ -1,81 +1,101 @@
-import { AfterViewInit, Component, Input, KeyValueDiffers, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CrudService } from 'src/app/services/crud/crud.service';
-import { Alumno } from "../../models/Alumno"
+import { Docente } from "../../models/Docente"
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+
+
+
+var Valores: Docente[] = [];
+
 
 @Component({
   selector: 'ngbd-modal-content',
   template: `
     <div class="modal-header">
-      <h4 class="modal-title">Hi there!</h4>
+      <h4 class="modal-title">Edita aqui</h4>
       <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-     <label for="control" class="form-label">Numero de Control</label>
-      <input type="text" class="form-control"  value="{{alumno.control}}">
+     <label for="rfcI" class="form-label">RFC</label>
+      <input #rfcI type="text" class="form-control"  value="{{docente.rfc}}">
+      
+     <label for="ClaveI" class="form-label">Clave Area</label>
+      <input  #claveI type="text" class="form-control" value="{{docente.clave_area}}">
 
-     <label for="reticula" class="form-label">Reticula</label>
-      <input type="text" class="form-control" id="reticula" value="{{alumno.reticula}}">
+     <label for="curpI" class="form-label">CURP</label>
+      <input  #curpI type="text" class="form-control" value="{{docente.curp}}">
 
-     <label for="semestre" class="form-label">Semestre</label>
-      <input type="text" class="form-control" id="semestre" value="{{alumno.semestre}}">
+     <label for="tarjetaI" class="form-label">No de Tajreta</label>
+      <input #tarjetaI type="text" class="form-control" value="{{docente.no_tarjeta}}">
 
-    
-     <label for="estado" class="form-label">Estado</label>
-      <input type="text" class="form-control" id="estado" value="{{alumno.estado}}">
+     <label for="estadoi" class="form-label">Estado</label>
+      <input #estadoi type="text" class="form-control" value="{{docente.estado}}">
 
-     <label for="plan" class="form-label">Plan</label>
-      <input type="text" class="form-control" id="plan" value="{{alumno.plan_estudios}}">
+     <label for="nombreI" class="form-label">Nombre</label>
+      <input #nombreI type="text" class="form-control" value="{{docente.nombre_completo}}">
 
-     <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombre" value="{{alumno.nombre_completo}}">
+     <label for="nombramientoI" class="form-label">Nombramiento</label>
+      <input #nombramientoI type="text" class="form-control" value="{{docente.nombramiento}}">
 
-     <label for="nip" class="form-label">NIP</label>
-      <input type="text" class="form-control" id="nip" value="{{alumno.nip}}">
+     <label for="tipoI" class="form-label">Tipo</label>
+      <input #tipoI type="text" class="form-control" value="{{docente.tipo}}">
+      
+      <label for="estadoI" class="form-label">Estado</label>
+      <input #estadoI type="text" class="form-control" value="{{docente.estado}}">
+      
 
-    <button class="btn btn-lg btn-outline-primary" (click)="open(alumno.control)">Launch demo modal</button>
+    <button class="btn btn-lg btn-outline-primary" (click)="EditarUno(rfcI.value, claveI.value, curpI.value,tarjetaI.value, nombreI.value,nombramientoI.value,tipoI.value, estadoI.value )">Guardar</button>
     </div>
-
-
-
-
-
-
-
-
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
     </div>
   `
 })
 
 export class NgbdModalContent {
-  @Input() alumno: any;
-  @Input() indice: any;
+  @Input()
+  docente!: Docente;
+  @Input()
+  indice!: number;
 
 
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal) { }
 
 
   ngOnInit() {
-    let controlModel = Valores[this.indice].control;
-
+    console.log(this.indice)
   }
 
 
-  open(id: any) {
-    // console.log();
-    console.log(this.alumno)
-  }
+  EditarUno(rfcP: String, claveP: String, curpIP: String, tarjetaP: String, nombreP: String, nombramientoP: String, tipoP: String, estadoP: String) {
 
+
+    this.activeModal.close(
+      {
+        indice: { indice: this.indice },
+        objeto: {
+          rfc: rfcP,
+          clave_area: claveP,
+          curp: curpIP,
+          no_tarjeta: tarjetaP,
+          nombre_completo: nombreP,
+          nombramiento: nombramientoP,
+          tipo: tipoP,
+          estado: estadoP,
+        }
+      }
+
+    )
+
+  }
 }
 
 
 
-var Valores: any[] = [];
 
 
 
@@ -87,17 +107,14 @@ var Valores: any[] = [];
 })
 export class TableTeacherComponent {
 
-  displayedColumnsAlumnos: string[] = ['RFC', 'Clave', 'Curp', 'NTarjeta', 'Nombre', 'Nombramiento', 'Tipo', 'Estado', 'Botones'];
-  dataSource!: MatTableDataSource<Alumno>;
+  displayedColumns: string[] = ['RFC', 'Clave', 'Curp', 'NTarjeta', 'Nombre', 'Nombramiento', 'Tipo', 'Estado', 'Botones'];
+  dataSource!: MatTableDataSource<Docente>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
 
-
-
-  cargando: boolean = true;
 
   constructor(public crud: CrudService, private modalService: NgbModal) {
     Valores.splice(0, Valores.length)
@@ -106,26 +123,8 @@ export class TableTeacherComponent {
       this.dataSource = new MatTableDataSource(Valores);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      this.cargando = false;
     })
   }
-
-
-  private iterador = 1;
-
-  Editar(row: any) {
-    const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.alumno = row;
-    modalRef.componentInstance.indice = Valores.findIndex(Alumno => Alumno.control == row.control);
-
-
-  }
-
-
-
-  AlumnosDisabled: boolean = true;
-
-
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -139,6 +138,24 @@ export class TableTeacherComponent {
 
 
 
+  Editar(row: Docente) {
+    const modalRef = this.modalService.open(NgbdModalContent);
+    modalRef.componentInstance.docente = row;
+    modalRef.componentInstance.indice = Valores.findIndex(Docente => Docente.rfc == row.rfc);
+
+
+    modalRef.result.then((result) => {
+      if (result) {
+        Valores[result.indice.indice] = result.objeto;
+        console.log(Valores[result.indice.indice]);
+
+        this.dataSource = new MatTableDataSource(Valores);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+    })
+      .catch(err => { console.log("No se hicieron cambios") });
+  }
 
 
 
@@ -146,36 +163,26 @@ export class TableTeacherComponent {
 
 
 
-
-
-
-
-
-
-  otro: any[] = [];
-
-
-
-  Borrar(id: any) {
-    this.otro = Valores.filter(item => item.rfc != id)
-    Valores = this.otro;
+  Borrar(id: String) {
+    let otro = [];
+    otro = Valores.filter(item => item.rfc != id)
+    Valores = otro;
     this.dataSource = new MatTableDataSource(Valores);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.cargando = false;
-
 
   }
 
 
-
-
-  Mostrar(a: any) {
-    console.log(a.target.value)
+  guardarBD() {
+    console.log("Guardado final")
   }
+
 
 
 
 }
+
+
 
 

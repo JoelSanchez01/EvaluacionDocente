@@ -1,81 +1,91 @@
-import { AfterViewInit, Component, Input, KeyValueDiffers, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CrudService } from 'src/app/services/crud/crud.service';
-import { Alumno } from "../../models/Alumno"
+import { Materia } from "../../models/Materia"
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+
+
+
+var Valores: Materia[] = [];
+
 
 @Component({
   selector: 'ngbd-modal-content',
   template: `
     <div class="modal-header">
-      <h4 class="modal-title">Hi there!</h4>
+      <h4 class="modal-title">Edita aqui</h4>
       <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-     <label for="control" class="form-label">Numero de Control</label>
-      <input type="text" class="form-control"  value="{{alumno.control}}">
+     <label for="claveI" class="form-label">Clave </label>
+      <input #claveI type="text" class="form-control"  value="{{materia.clave_materia}}">
+      
+     <label for="nivelI" class="form-label">Nivel Escolar</label>
+      <input  #nivelI type="text" class="form-control" value="{{materia.nivel_escolar}}">
 
-     <label for="reticula" class="form-label">Reticula</label>
-      <input type="text" class="form-control" id="reticula" value="{{alumno.reticula}}">
+     <label for="tipoI" class="form-label">Tipo</label>
+      <input  #tipoI type="text" class="form-control" value="{{materia.tipo}}">
 
-     <label for="semestre" class="form-label">Semestre</label>
-      <input type="text" class="form-control" id="semestre" value="{{alumno.semestre}}">
+     <label for="claveAI" class="form-label">Clave de Area</label>
+      <input #claveAI type="text" class="form-control" value="{{materia.clave_area}}">
 
-    
-     <label for="estado" class="form-label">Estado</label>
-      <input type="text" class="form-control" id="estado" value="{{alumno.estado}}">
+     <label for="nombreI" class="form-label">Nombre</label>
+      <input #nombreI type="text" class="form-control" value="{{materia.nombre}}">
 
-     <label for="plan" class="form-label">Plan</label>
-      <input type="text" class="form-control" id="plan" value="{{alumno.plan_estudios}}">
+     <label for="nombreaI" class="form-label">Nombre Abreviado</label>
+      <input #nombreaI type="text" class="form-control" value="{{materia.nombre_abreviado}}">
 
-     <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombre" value="{{alumno.nombre_completo}}">
+      
 
-     <label for="nip" class="form-label">NIP</label>
-      <input type="text" class="form-control" id="nip" value="{{alumno.nip}}">
-
-    <button class="btn btn-lg btn-outline-primary" (click)="open(alumno.control)">Launch demo modal</button>
+    <button class="btn btn-lg btn-outline-primary" (click)="EditarUno(claveI.value, nivelI.value, tipoI.value,claveAI.value, nombreI.value,nombreaI.value)">Guardar</button>
     </div>
-
-
-
-
-
-
-
-
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Cerrar</button>
     </div>
   `
 })
 
 export class NgbdModalContent {
-  @Input() alumno: any;
-  @Input() indice: any;
+  @Input()
+  materia!: Materia;
+  @Input()
+  indice!: number;
 
 
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal) { }
 
 
   ngOnInit() {
-    let controlModel = Valores[this.indice].control;
-
+    console.log(this.indice)
   }
 
 
-  open(id: any) {
-    // console.log();
-    console.log(this.alumno)
-  }
+  EditarUno(clave_materiaP: String, nivel_escolarP: String, tipoP: String, clave_areaP: String, nombreP: String, nombre_abreviadoP: String
+  ) {
 
+    this.activeModal.close(
+      {
+        indice: { indice: this.indice },
+        objeto: {
+          clave_materia: clave_materiaP,
+          nivel_escolar: nivel_escolarP,
+          tipo: tipoP,
+          clave_area: clave_areaP,
+          nombre: nombreP,
+          nombre_abreviado: nombre_abreviadoP
+
+        }
+      }
+
+    )
+
+  }
 }
 
 
-
-var Valores: any[] = [];
 
 
 
@@ -87,16 +97,13 @@ var Valores: any[] = [];
 export class TableSubjectComponent {
 
   displayedColumnsAlumnos: string[] = ['Clave', 'Nivel', 'Tipo', 'ClaveA', 'Nombre', 'NombreA', 'Botones'];
-  dataSource!: MatTableDataSource<Alumno>;
+  dataSource!: MatTableDataSource<Materia>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
 
-
-
-  cargando: boolean = true;
 
   constructor(public crud: CrudService, private modalService: NgbModal) {
     Valores.splice(0, Valores.length)
@@ -105,26 +112,8 @@ export class TableSubjectComponent {
       this.dataSource = new MatTableDataSource(Valores);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      this.cargando = false;
     })
   }
-
-
-  private iterador = 1;
-
-  Editar(row: any) {
-    const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.alumno = row;
-    modalRef.componentInstance.indice = Valores.findIndex(Alumno => Alumno.control == row.control);
-
-
-  }
-
-
-
-  AlumnosDisabled: boolean = true;
-
-
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -138,6 +127,24 @@ export class TableSubjectComponent {
 
 
 
+  Editar(row: Materia) {
+    const modalRef = this.modalService.open(NgbdModalContent);
+    modalRef.componentInstance.materia = row;
+    modalRef.componentInstance.indice = Valores.findIndex(Materia => Materia.clave_materia == row.clave_materia);
+
+
+    modalRef.result.then((result) => {
+      if (result) {
+        Valores[result.indice.indice] = result.objeto;
+        console.log(Valores[result.indice.indice]);
+
+        this.dataSource = new MatTableDataSource(Valores);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+    })
+      .catch(err => { console.log("No se hicieron cambios") });
+  }
 
 
 
@@ -145,37 +152,28 @@ export class TableSubjectComponent {
 
 
 
-
-
-
-
-
-
-  otro: any[] = [];
-
-
-
-  Borrar(id: any) {
-    this.otro = Valores.filter(item => item.clave_materia != id)
-    Valores = this.otro;
+  Borrar(id: String) {
+    let otro = [];
+    otro = Valores.filter(item => item.clave_materia != id)
+    Valores = otro;
     this.dataSource = new MatTableDataSource(Valores);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.cargando = false;
-
 
   }
 
 
-
-
-  Mostrar(a: any) {
-    console.log(a.target.value)
+  guardarBD() {
+    console.log("Guardado final")
   }
+
 
 
 
 }
+
+
+
 
 
 

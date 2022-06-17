@@ -5,6 +5,7 @@ export class Grupo {
     public grupo: string,
     public capacidad: string,
     public alumnos_inscritos: string,
+
     public rfc_docente: string
   ) {
   }

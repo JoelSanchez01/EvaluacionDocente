@@ -1,7 +1,7 @@
 <div>
     <mat-form-field appearance="standard">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo. Joel" #input>
     </mat-form-field>
 
     <div class="mat-elevation-z8">
@@ -68,8 +68,8 @@
                 </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumnsAlumnos"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumnsAlumnos;"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
             <!-- Row shown when there is no matching data. -->
             <tr class="mat-row" *matNoDataRow>
@@ -81,5 +81,6 @@
     </div>
 
 
+    <button class="btn btn-success" (click)="guardarBD()">Guardar</button>
 
 </div>

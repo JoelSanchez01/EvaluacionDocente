@@ -1,16 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as XLSX from "xlsx";
 
-import {Alumno} from "../../models/Alumno";
-import {Materia} from "../../models/Materia";
-import {Periodo} from "../../models/Periodo";
-import {Academia} from "../../models/Academia";
+import { Alumno } from "../../models/Alumno";
+import { Materia } from "../../models/Materia";
+import { Periodo } from "../../models/Periodo";
+import { Academia } from "../../models/Academia";
 import { Carrera } from 'src/app/models/Carrera';
-import {Docente} from "../../models/Docente";
-import {SeleccionMateria} from "../../models/SeleccionMateria";
-import {Grupo} from "../../models/Grupo";
-import {CrudService} from "../../services/crud/crud.service";
-import {AuthService} from "../../services/auth/auth.service";
+import { Docente } from "../../models/Docente";
+import { SeleccionMateria } from "../../models/SeleccionMateria";
+import { Grupo } from "../../models/Grupo";
+import { CrudService } from "../../services/crud/crud.service";
+import { AuthService } from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-upload-data',
@@ -46,7 +46,7 @@ export class UploadDataComponent implements OnInit {
       let workbook = XLSX.read(binaryData, { type: 'binary' });
 
       workbook.SheetNames.forEach(sheet => {
-        const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet], {header: 1});
+        const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet], { header: 1 });
         data.shift();
 
         if (event1.srcElement.__ngContext__[8].$implicit == "Organigrama") {
@@ -103,16 +103,16 @@ export class UploadDataComponent implements OnInit {
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Periodos") {
           this.periodos = data.map(item => {
-              return new Periodo(
-                // @ts-ignore
-                item[0],
-                // @ts-ignore
-                item[1],
-                // @ts-ignore
-                item[2],
-                // @ts-ignore
-                item[3]
-              )
+            return new Periodo(
+              // @ts-ignore
+              item[0],
+              // @ts-ignore
+              item[1],
+              // @ts-ignore
+              item[2],
+              // @ts-ignore
+              item[3]
+            )
           });
         }
         if (event1.srcElement.__ngContext__[8].$implicit == "Carreras") {
@@ -150,13 +150,13 @@ export class UploadDataComponent implements OnInit {
               item[8],
               // @ts-ignore
               item[11]
-          )
+            )
           })
         }
 
         if (event1.srcElement.__ngContext__[8].$implicit == "Grupos") {
           this.grupos = data.map(item => {
-            return new Grupo (
+            return new Grupo(
               // @ts-ignore
               item[0],
               // @ts-ignore
@@ -193,8 +193,8 @@ export class UploadDataComponent implements OnInit {
   }
 
   SubirBDD(val: any) {
-  if (val.status == "INVALID") alert("Responde todas las preguntas")
-  else {
+    if (val.status == "INVALID") alert("Responde todas las preguntas")
+    else {
       this.subirOrganigrama(this.academias);
       this.subirPeriodos(this.periodos);
       this.subirMaterias(this.materias);
