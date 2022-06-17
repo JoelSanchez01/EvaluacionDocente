@@ -1,0 +1,86 @@
+<div>
+    <mat-form-field appearance="standard">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo. Joel" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort class="TableAlumnos">
+
+            <ng-container matColumnDef="RFC">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> RFC </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.rfc}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Clave">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Clave Carrera </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.clave_area}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Curp">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> CURP </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.curp}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="NTarjeta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nº Tarjeta </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.no_tarjeta}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Nombre">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.nombre_completo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Nombramiento">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombramiento </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.nombramiento}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Tipo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.tipo}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Estado">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.estado}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Botones">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Accion </th>
+                <td mat-cell *matCellDef="let row">
+                    <button type="button" (click)="Editar(row)">E</button>
+                    <button type="button" (click)="Borrar(row.rfc)">D</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="7">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+
+
+    <button class="btn btn-success" (click)="guardarBD()">Guardar</button>
+
+</div>
