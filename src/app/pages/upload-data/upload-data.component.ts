@@ -97,7 +97,9 @@ export class UploadDataComponent implements OnInit {
               // @ts-ignore
               item[6] + " " + item[7] + " " + item[8],
               // @ts-ignore
-              item[9]
+              item[9],
+              // @ts-ignore
+              item[6].replace(/\s/g, '').toLowerCase() + " " + item[7].replace(/\s/g, '').toLowerCase() + item[0].substring(0, 2) + item[0].substring(5, 8) + "@itsmante.edu.mx"
             )
           });
         }

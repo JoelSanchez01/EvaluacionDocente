@@ -7,6 +7,7 @@ export class Alumno {
     public estado: string,
     public plan_estudios: string,
     public nombre_completo: string,
-    public nip: string
+    public nip: string,
+    public correo: string
   ) { }
 }
