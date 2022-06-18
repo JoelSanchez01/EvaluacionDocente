@@ -1,20 +1,21 @@
-
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import {AuthService} from "../../services/auth/auth.service";
-import {CrudService} from "../../services/crud/crud.service";
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
+import { CrudService } from '../../services/crud/crud.service';
 
 @Component({
   selector: 'app-menu-admin',
   templateUrl: './menu-admin.component.html',
-  styleUrls: ['./menu-admin.component.scss']
+  styleUrls: ['./menu-admin.component.scss'],
 })
 export class MenuAdminComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private auth: AuthService,
+    private crud: CrudService
+  ) {}
 
-  constructor(private router: Router, private auth : AuthService, private crud : CrudService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   goToEditing() {
     this.router.navigate(['edit-database']);
@@ -25,10 +26,10 @@ export class MenuAdminComponent implements OnInit {
     this.router.navigate(['login-admin']);
   }
 
-  getStartDate(startValue:string){
+  getStartDate(startValue: string) {
     console.log(startValue);
   }
-  getStopDate(stopValue:string){
+  getStopDate(stopValue: string) {
     console.log(stopValue);
   }
   uploadScreen() {
@@ -36,11 +37,19 @@ export class MenuAdminComponent implements OnInit {
   }
 
   deleteData() {
-    let contrasena = <string> window.prompt("¿Está seguro que desea borrar la base de datos? Introduzca su contraseña");
-    let usuario = <string> localStorage.getItem("usuario");
-    if(contrasena) {
+    let contrasena = <string>(
+      window.prompt(
+        '¿Está seguro que desea borrar la base de datos? Introduzca su contraseña'
+      )
+    );
+    let usuario = <string>localStorage.getItem('usuario');
+    if (contrasena) {
       this.crud.truncateAllData(usuario, contrasena);
       console.log(contrasena);
     }
+  }
+
+  exportProgress() {
+    this.crud.getRemainingStudents().subscribe();
   }
 }
