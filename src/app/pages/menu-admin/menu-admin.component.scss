@@ -1,18 +1,19 @@
 @import "../../variables";
 
 .borde{
-  margin-top: 60px;
   justify-content: center;
   text-align: center;
+  margin:0 auto;
+  margin-top: 5%;
 }
 
 button{
   background-color: $background-lighter;
   display:inline-block;
   margin-right:5%;
-  margin-bottom: 2%;
-  width:230px;
-  height: 230px;
+  margin-bottom: 5%;
+  width:200px;
+  height: 200px;
   border-color:$background-lighter;
   justify-content: center;
   align-items: center;
@@ -30,8 +31,8 @@ button{
 }
 
 .image {
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
   display:block;
   margin:10px auto 0px auto;
 }
@@ -82,3 +83,8 @@ h4{
     outline: none;
   }
 
+  @media (min-width:700px) and (max-width:999px){
+    .borde{
+      width:60%;
+    }
+  }
