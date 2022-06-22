@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { CrudService } from '../../services/crud/crud.service';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-menu-admin',
@@ -50,6 +52,27 @@ export class MenuAdminComponent implements OnInit {
   }
 
   exportProgress() {
-    this.crud.getRemainingStudents().subscribe();
+    this.crud.getRemainingStudents().subscribe((data) => {
+      var wb = XLSX.utils.book_new();
+      wb.Props = {
+        Title: "Estudiantes faltantes",
+        Subject: "Evaluación docente"
+      }
+      wb.SheetNames.push("Estudiantes faltantes");
+      var ws = XLSX.utils.json_to_sheet(data);
+      
+      wb.Sheets["Estudiantes faltantes"] = ws;
+
+      var out = XLSX.write(wb, {bookType: "xlsx", type: "binary"});
+      // XLSX.writeFile(out, "out.xlsx");
+
+      var buf = new ArrayBuffer(out.length);
+      var view = new Uint8Array(buf);
+      for(var i = 0; i < out.length; i++) {
+        view[i] = out.charCodeAt(i) & 0xff;
+      }
+    
+      saveAs(new Blob([buf], {type: "application/octet-stream"}), 'Estudiantes restantes.xlsx');
+    });
   }
 }

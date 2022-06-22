@@ -123,7 +123,7 @@ export class CrudService {
 
   getRemainingStudents() {
     return this.http.get<EstudianteRestante[]>(
-      `${this.baseUrl}/students/getRemainingStudents.php`
+      `${this.baseUrl}/student/getRemainingStudents.php`
     );
   }
 }
